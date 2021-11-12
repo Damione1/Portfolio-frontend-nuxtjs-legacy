@@ -26,7 +26,30 @@ export default {
      ** Axios module configuration
      */
     axios: {
-        // See https://github.com/nuxt-community/axios-module#options
+        baseURL: process.env.API_URL || "http://localhost:3000/",
+        credentials: true
+    },
+    headers: {
+        post: {
+            'Accept': 'application/json, text/plain, */*'
+        }
+    },
+    auth: {
+        redirect: {
+            login: false,
+            logout: '/users/login',
+            home: false
+        },
+        strategies: {
+            user: {
+                _scheme: 'local',
+                endpoints: {
+                    login: { url: '/login', method: 'post', propertyName: 'jwt' },
+                    logout: false,
+                    user: { url: '/users/current_user', method: 'get' }
+                }
+            }
+        }
     },
 
 
@@ -51,13 +74,6 @@ export default {
     ],
 
     proxy: {},
-
-    // Axios module configuration: https://go.nuxtjs.dev/config-axios
-    axios: {},
-
-    auth: {
-        // Options
-    },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {},
