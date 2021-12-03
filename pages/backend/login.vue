@@ -1,0 +1,80 @@
+<template>
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-4 is-offset-4">
+          <h2 class="title has-text-centered">Welcome back!</h2>
+
+          <Notification :message="error" v-if="error"/>
+
+          <form method="post" @submit.prevent="userLogin">
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control">
+                <input
+                  type="email"
+                  class="input"
+                  name="email"
+                  v-model="login.email"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="control">
+                <input
+                  type="password"
+                  class="input"
+                  name="password"
+                  v-model="login.password"
+                />
+              </div>
+            </div>
+            <div class="control">
+              <button type="submit" class="button is-dark is-fullwidth">Log In</button>
+            </div>
+          </form>
+          <div class="has-text-centered" style="margin-top: 20px">
+            <p>
+              Don't have an account? <nuxt-link to="/backend/register">Register</nuxt-link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+import Notification from '~/components/Notification'
+
+export default {
+  components: {
+    Notification,
+  },
+
+  data() {
+    return {
+      login: {
+        email: 'damien.goehrig4@gmail.com',
+        password: 'a123456b',
+      },
+      error: null
+    }
+  },
+
+  methods: {
+    async userLogin() {
+      try {
+        let response = await this.$auth.loginWith('local', { data: this.login }).then(response => {
+          console.log(response)
+          this.$router.push('/backend')
+        })
+        console.log(response)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  }
+}
+</script>

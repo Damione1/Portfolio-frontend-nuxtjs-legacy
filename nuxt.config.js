@@ -12,7 +12,11 @@ export default {
             { name: 'format-detection', content: 'telephone=no' }
         ],
         link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+            {
+                rel: 'stylesheet',
+                href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css'
+              }
         ]
     },
 
@@ -27,7 +31,8 @@ export default {
      */
     axios: {
         baseURL: process.env.API_URL || "http://localhost:3000/",
-        credentials: true
+        credentials: true,
+        proxy: true
     },
     headers: {
         post: {
@@ -36,18 +41,34 @@ export default {
     },
     auth: {
         redirect: {
-            login: false,
+            login: '/backend/login',
             logout: '/users/login',
-            home: false
+            home: '/backend'
         },
         strategies: {
-            user: {
-                _scheme: 'local',
+            local: {
+                scheme: 'refresh',
+                token: {
+                  property: 'token',
+                  maxAge: 1800,
+                },
+                refreshToken: {
+                  property: 'refreshToken',
+                  data: 'refreshToken',
+                  //maxAge: 60 * 60 * 24 * 30
+                },
+                user: {
+                  property: 'user',
+                  autoFetch: true
+                },
                 endpoints: {
-                    login: { url: '/login', method: 'post', propertyName: 'jwt' },
+                    login: { url: process.env.API_URL + 'api/auth/login', method: 'post'},
+                    refresh: { url: process.env.API_URL + 'api/auth/refreshtoken', method: 'post'},
+                    user: { url: process.env.API_URL + 'api/auth/getCurrentUser', method: 'get'},
                     logout: false,
-                    user: { url: '/users/current_user', method: 'get' }
-                }
+                },
+                tokenRequired: true,
+                tokenType: 'Bearer'    
             }
         }
     },

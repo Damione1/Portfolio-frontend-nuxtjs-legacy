@@ -1,11 +1,15 @@
 <template>
 <ul>
+  {{professionnalExperiences}}
  <li
           v-for="professionnalExperience in professionnalExperiences"
           :key="professionnalExperience.id"
         >
-          <td>{{ professionnalExperience.title }}</td>
-          <td>{{ professionnalExperience.company_name }}</td>
+          <td>{{ professionnalExperience.position }}</td>
+          <td>{{ professionnalExperience.company }}</td>
+          <td>{{ professionnalExperience.description }}</td>
+          <td>{{ professionnalExperience.startDate }}</td>
+          <td>{{ professionnalExperience.endDate }}</td>
         </li>
 </ul>
 </template>
@@ -15,7 +19,7 @@
 
 export default {
     async asyncData({ $axios }) {
-    const res = await $axios.$get('/');
+    const res = await $axios.$get('/workExperiences');
     return { professionnalExperiences: res }
   }
 }
