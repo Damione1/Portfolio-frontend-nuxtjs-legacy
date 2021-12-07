@@ -1,27 +1,20 @@
 <template>
-  <section class="section">
-    <div class="container">
-      <h2 class="title">My Profile</h2>
-      <div class="content">
-        <p>
-          <strong>Name:</strong>
-          {{ loggedInUser.firstName }} {{ loggedInUser.lastName }}
-        </p>
-        <p>
-          <strong>Email:</strong>
-          {{ loggedInUser.email }}
-        </p>
-      </div>
-    </div>
-  </section>
+  <div>
+    <Navbar/>
+    <nuxt/>
+  </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import Navbar from '~/components/Navbar'
 
 export default {
   computed: {
     ...mapGetters(['loggedInUser'])
+  },
+  components: {
+    Navbar
   }
 }
 </script>

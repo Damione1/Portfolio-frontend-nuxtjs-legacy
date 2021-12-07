@@ -1,7 +1,7 @@
 export default {
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
-        title: 'portfolio-frontend',
+        title: 'Portfolio Frontend',
         htmlAttrs: {
             lang: 'en'
         },
@@ -16,7 +16,7 @@ export default {
             {
                 rel: 'stylesheet',
                 href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css'
-              }
+            }
         ]
     },
 
@@ -24,19 +24,20 @@ export default {
     css: [],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-    plugins: ['~/plugins/axios.js'],
+    plugins: [],
 
     /*
      ** Axios module configuration
      */
     axios: {
-        baseURL: process.env.API_URL || "http://localhost:3000/",
+        baseURL: process.env.API_URL || 'http://localhost:4000',
         credentials: true,
         proxy: true
     },
+
     headers: {
         post: {
-            'Accept': 'application/json, text/plain, */*'
+            Accept: 'application/json, text/plain, */*'
         }
     },
     auth: {
@@ -49,31 +50,29 @@ export default {
             local: {
                 scheme: 'refresh',
                 token: {
-                  property: 'token',
-                  maxAge: 1800,
+                    property: 'token',
+                    maxAge: 1800
                 },
                 refreshToken: {
-                  property: 'refreshToken',
-                  data: 'refreshToken',
-                  //maxAge: 60 * 60 * 24 * 30
+                    property: 'refreshToken',
+                    data: 'refreshToken'
+                        // maxAge: 60 * 60 * 24 * 30
                 },
                 user: {
-                  property: 'user',
-                  autoFetch: true
+                    property: 'user',
+                    autoFetch: true
                 },
                 endpoints: {
-                    login: { url: process.env.API_URL + 'api/auth/login', method: 'post'},
-                    refresh: { url: process.env.API_URL + 'api/auth/refreshtoken', method: 'post'},
-                    user: { url: process.env.API_URL + 'api/auth/getCurrentUser', method: 'get'},
-                    logout: false,
+                    login: { url: '/api/auth/login', method: 'post' },
+                    refresh: { url: '/api/auth/refreshtoken', method: 'post' },
+                    user: { url: '/api/auth/getCurrentUser', method: 'get' },
+                    logout: false
                 },
                 tokenRequired: true,
-                tokenType: 'Bearer'    
+                tokenType: 'Bearer'
             }
         }
     },
-
-
 
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,
@@ -83,7 +82,8 @@ export default {
         // https://go.nuxtjs.dev/typescript
         '@nuxt/typescript-build',
         // https://go.nuxtjs.dev/tailwindcss
-        '@nuxtjs/tailwindcss'
+        '@nuxtjs/tailwindcss',
+        '@nuxtjs/eslint-module'
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
@@ -91,15 +91,17 @@ export default {
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
         '@nuxtjs/proxy',
-        '@nuxtjs/auth',
+        '@nuxtjs/auth'
     ],
 
-    proxy: {},
+    proxy: {
+        '/api': process.env.API_URL,
+    },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {},
 
     server: {
-        port: 3001,
+        port: 3001
     }
 }
