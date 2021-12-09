@@ -6,9 +6,10 @@
     <input v-model="professionnalExperience.description" type="textarea">
     <input v-model="professionnalExperience.position" type="text">
     <input v-model="professionnalExperience.startDate" type="date">
-    <input v-model="professionnalExperience.endDate" type="date">
+    <input v-if="false === professionnalExperience.current" v-model="professionnalExperience.endDate" type="date" placeholder="EndDate">
+    Current? <input v-model="professionnalExperience.current" type="checkbox">
     <button type="submit" @click="updateExperience">
-      Submit
+      Update
     </button>
     <button type="submit" @click="deleteExperience">
       Delete

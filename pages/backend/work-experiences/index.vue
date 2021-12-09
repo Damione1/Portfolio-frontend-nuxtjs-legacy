@@ -13,7 +13,7 @@
           <li>{{ professionnalExperience.startDate }}</li>
           <li>{{ professionnalExperience.endDate }}</li>
           <li>
-            <nuxt-link to="/work-experiences/{{ professionnalExperience._id }}">
+            <nuxt-link :to="'/backend/work-experiences/' + professionnalExperience._id">
               Editer
             </nuxt-link>
             <button @click="deletePost(professionnalExperience._id)">

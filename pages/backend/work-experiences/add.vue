@@ -5,7 +5,8 @@
     <input v-model="professionnalExperience.position" type="text" placeholder="Position">
     <input v-model="professionnalExperience.description" type="textarea" placeholder="Description">
     <input v-model="professionnalExperience.startDate" type="date" placeholder="StartDate">
-    <input v-model="professionnalExperience.endDate" type="date" placeholder="EndDate">
+    <input v-if="false === professionnalExperience.current" v-model="professionnalExperience.endDate" type="date" placeholder="EndDate">
+    Current?<input v-model="professionnalExperience.current" type="checkbox">
     <input v-model="professionnalExperience.language" type="text" placeholder="Language ">
     <button type="submit" @click="addExperience">
       Add
@@ -21,7 +22,8 @@ export default {
   data () {
     return {
       professionnalExperience: {
-        language: 'en'
+        language: 'en',
+        current: true
       }
     }
   },

@@ -51,25 +51,24 @@ export default {
                 scheme: 'refresh',
                 token: {
                     property: 'token',
-                    maxAge: 1800
+                    maxAge: 1800,
                 },
                 refreshToken: {
-                    property: 'refreshToken',
-                    data: 'refreshToken'
-                        // maxAge: 60 * 60 * 24 * 30
+                    property: 'refresh_token',
+                    data: 'refresh_token'
                 },
                 user: {
                     property: 'user',
                     autoFetch: true
                 },
+                autoLogout: false,
+                tokenRequired: true,
                 endpoints: {
                     login: { url: '/api/auth/login', method: 'post' },
-                    refresh: { url: '/api/auth/refreshtoken', method: 'post' },
+                    refresh: { url: '/api/auth/refreshToken', method: 'post' },
                     user: { url: '/api/auth/getCurrentUser', method: 'get' },
                     logout: false
-                },
-                tokenRequired: true,
-                tokenType: 'Bearer'
+                }
             }
         }
     },
@@ -91,7 +90,7 @@ export default {
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
         '@nuxtjs/proxy',
-        '@nuxtjs/auth'
+        '@nuxtjs/auth-next',
     ],
 
     proxy: {
