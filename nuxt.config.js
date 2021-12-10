@@ -43,7 +43,7 @@ export default {
     auth: {
         redirect: {
             login: '/backend/login',
-            logout: '/users/login',
+            logout: '/backend/login',
             home: '/backend'
         },
         strategies: {
@@ -51,7 +51,7 @@ export default {
                 scheme: 'refresh',
                 token: {
                     property: 'token',
-                    maxAge: 1800,
+                    maxAge: 300
                 },
                 refreshToken: {
                     property: 'refresh_token',
@@ -67,7 +67,7 @@ export default {
                     login: { url: '/api/auth/login', method: 'post' },
                     refresh: { url: '/api/auth/refreshToken', method: 'post' },
                     user: { url: '/api/auth/getCurrentUser', method: 'get' },
-                    logout: false
+                    logout: { url: '/api/auth/logout', method: 'get' }
                 }
             }
         }

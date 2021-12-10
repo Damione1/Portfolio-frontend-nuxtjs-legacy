@@ -18,10 +18,9 @@
         Sessions
       </h2>
       <div v-for="token in tokenList" :key="token._id" class="item">
-        Token: {{ token.refreshToken.substring(0, 10) }}[...]{{ token.refreshToken.substring(token.refreshToken.length - 15) }}
-        Last used: {{ token.lastUsed }}
-        <button class="button is-danger" @click="revokeToken(token)">
-          Revoke
+        {{ token.userAgent }} Last used: {{ token.lastUsed }}
+        <button :class="['button', token.isCurrent ? 'is-danger' : 'is-warning' ]" @click="revokeToken(token)">
+          {{ token.isCurrent ? 'Logout' : 'Revoke' }}
         </button>
       </div>
     </div>
@@ -34,9 +33,13 @@ import { mapGetters } from 'vuex'
 export default {
   layout: 'backend',
   middleware: 'auth',
-  async asyncData ({ $axios }) {
-    const res = await $axios({ url: '/api/auth/userToken/' })
-    return { tokenList: res.data }
+  async asyncData ({ $axios, $auth }) {
+    const response = await $axios({ url: '/api/auth/userToken/' })
+    const currentTokenIndex = response.data.findIndex(token => token.refreshToken === $auth.strategy.refreshToken.get())
+    if (currentTokenIndex !== -1) {
+      response.data[currentTokenIndex].isCurrent = true
+    }
+    return { tokenList: response.data.reverse() }
   },
   data () {
     return {
@@ -48,8 +51,12 @@ export default {
   },
   methods: {
     async revokeToken (token) {
-      await this.$axios.delete('/api/auth/userToken/' + token._id)
-      this.tokenList = this.tokenList.filter(t => t._id !== token._id)
+      if (token.refreshToken === this.$auth.strategy.refreshToken.get()) {
+        this.$auth.logout()
+      } else {
+        await this.$axios.delete('/api/auth/userToken/' + token._id)
+        this.tokenList = this.tokenList.filter(t => t._id !== token._id)
+      }
     }
   }
 

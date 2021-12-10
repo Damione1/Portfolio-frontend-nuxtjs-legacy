@@ -2,29 +2,39 @@
   <nav class="navbar is-light">
     <div class="container">
       <div class="navbar-brand">
-        <nuxt-link class="navbar-item" to="/backend">Portfolio</nuxt-link>
+        <nuxt-link class="navbar-item" to="/backend">
+          Portfolio
+        </nuxt-link>
         <button class="button navbar-burger">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
+          <span />
         </button>
       </div>
       <div class="navbar-menu">
         <div class="navbar-end">
-          <div class="navbar-item has-dropdown is-hoverable" v-if="isAuthenticated">
+          <div v-if="isAuthenticated" class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
               {{ loggedInUser.username }}
             </a>
             <div class="navbar-dropdown">
-              <nuxt-link class="navbar-item" to="/backend/account">My Profile</nuxt-link>
-              <hr class="navbar-divider"/>
-              <a class="navbar-item"  @click="logout">Logout</a>
+              <nuxt-link class="navbar-item" to="/backend/account">
+                My Profile
+              </nuxt-link>
+              <hr class="navbar-divider">
+              <a class="navbar-item" @click="logout">Logout</a>
             </div>
           </div>
           <template v-else>
-            <nuxt-link class="navbar-item" to="/">Frontend</nuxt-link>
-            <nuxt-link class="navbar-item" to="/backend/register">Register</nuxt-link>
-            <nuxt-link class="navbar-item" to="/backend/login">Log In</nuxt-link>
+            <nuxt-link class="navbar-item" to="/">
+              Frontend
+            </nuxt-link>
+            <nuxt-link class="navbar-item" to="/backend/register">
+              Register
+            </nuxt-link>
+            <nuxt-link class="navbar-item" to="/backend/login">
+              Log In
+            </nuxt-link>
           </template>
         </div>
       </div>
@@ -40,9 +50,9 @@ export default {
     ...mapGetters(['isAuthenticated', 'loggedInUser'])
   },
   methods: {
-    async logout() {
-      await this.$auth.logout();
-    },
-  },
+    async logout () {
+      await this.$auth.logout()
+    }
+  }
 }
 </script>

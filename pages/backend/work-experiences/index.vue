@@ -49,8 +49,7 @@ export default {
       this.$router.push(`/backend/work-experiences/${id}`)
     },
     deletePost (id) {
-      this.$axios.delete(`/api/workExperiences/${id}`).then((res) => {
-        console.log(res)
+      this.$axios.delete(`/api/workExperiences/${id}`).then(() => {
         this.fetchPosts()
       })
     },
