@@ -12,11 +12,7 @@ export default {
             { name: 'format-detection', content: 'telephone=no' }
         ],
         link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-            {
-                rel: 'stylesheet',
-                href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css'
-            }
+            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
         ]
     },
 
@@ -73,6 +69,17 @@ export default {
         }
     },
 
+    dateFns: {
+        locales: ['en', 'fr'],
+        defaultLocale: 'en-CA',
+        format: 'yyyy-MM-dd'
+    },
+
+    vuetify: {
+        icons: {
+            iconfont: 'mdiSvg' // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
+        }
+    },
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,
 
@@ -80,9 +87,9 @@ export default {
     buildModules: [
         // https://go.nuxtjs.dev/typescript
         '@nuxt/typescript-build',
-        // https://go.nuxtjs.dev/tailwindcss
-        '@nuxtjs/tailwindcss',
-        '@nuxtjs/eslint-module'
+        '@nuxtjs/vuetify',
+        '@nuxtjs/eslint-module',
+        '@nuxtjs/date-fns'
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
@@ -90,11 +97,11 @@ export default {
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
         '@nuxtjs/proxy',
-        '@nuxtjs/auth-next',
+        '@nuxtjs/auth-next'
     ],
 
     proxy: {
-        '/api': process.env.API_URL,
+        '/api': process.env.API_URL
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build

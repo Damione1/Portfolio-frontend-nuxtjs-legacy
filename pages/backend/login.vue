@@ -1,86 +1,106 @@
 <template>
-  <section class="section">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-4 is-offset-4">
-          <h2 class="title has-text-centered">
-            Welcome back!
-          </h2>
-
-          <Notification v-if="error" :message="error" />
-
-          <form method="post" @submit.prevent="userLogin">
-            <div class="field">
-              <label class="label">Email</label>
-              <div class="control">
-                <input
-                  v-model="login.email"
-                  type="email"
-                  class="input"
-                  name="email"
-                >
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Password</label>
-              <div class="control">
-                <input
-                  v-model="login.password"
-                  type="password"
-                  class="input"
-                  name="password"
-                >
-              </div>
-            </div>
-            <div class="control">
-              <button type="submit" class="button is-dark is-fullwidth">
-                Log In
-              </button>
-            </div>
-          </form>
-          <div class="has-text-centered" style="margin-top: 20px">
-            <p>
-              Don't have an account? <nuxt-link to="/backend/register">
-                Register
-              </nuxt-link>
-            </p>
+  <v-app>
+    <div class="background"></div>
+    <v-main class="d-flex justify-center align-center">
+      <v-col cols="10" lg="4" class="mx-auto">
+        <v-card class="pa-4">
+          <div class="text-center">
+            <v-avatar size="100" color="indigo lighten-4">
+              <v-icon size="40" color="indigo">mdi-account</v-icon>
+            </v-avatar>
+            <h2 class="indigo--text">Vue login Page</h2>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          <v-form @submit.prevent="userLogin" ref="form">
+            <v-card-text>
+              <v-text-field
+                v-model="login.email"
+                :rules="emailRules"
+                type="email"
+                label="Email"
+                placeholder="Email"
+                prepend-inner-icon="mdi-account"
+                required
+              />
+              <v-text-field
+                      v-model="login.password"
+                      :rules="passwordRules"
+                      :type="passwordShow?'text':'password'"
+                      label="Password"
+                      placeholder="Password"
+                      prepend-inner-icon="mdi-key"
+                      :append-icon="passwordShow ? 'mdi-eye':'mdi-eye-off'"
+                      @click:append="passwordShow = !passwordShow"
+                      required
+              />
+              <v-switch label="Remember me" color="indigo"></v-switch>
+            </v-card-text>
+            <v-card-actions class="justify-center">
+              <v-btn :loading="loading" type="submit" color="indigo">
+                <span class="white--text px-8">Login</span>
+              </v-btn>
+            </v-card-actions>
+          </v-form>
+        </v-card>
+      </v-col>
+    </v-main>
+    <v-snackbar bottom color="green" v-model="snackbar">
+      {{ snackbarText }}
+    </v-snackbar>
+  </v-app>
 </template>
 
-<script>
-import Notification from '~/components/Notification'
-
+<script type="ts">
 export default {
-  components: {
-    Notification
-  },
-
   data () {
     return {
       login: {
         email: 'damien.goehrig4@gmail.com',
         password: 'a123456b'
       },
-      error: null
+      error: null,
+      loading: false,
+      snackbar: false,
+      snackbarText: '',
+      passwordShow: false,
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
+      ],
+      passwordRules: [
+        v => !!v || 'Password is required',
+        v => (v && v.length >= 6) || 'Password must be 6  characters or more!'
+      ]
     }
   },
 
   methods: {
     async userLogin () {
+      this.loading = true
       try {
-        const response = await this.$auth.loginWith('local', { data: this.login }).then((response) => {
-          console.log(response)
+        await this.$auth.loginWith('local', { data: this.login }).then(() => {
+          this.snackbarText = 'Login Successful'
+          this.snackbar = true
+          this.loading = false
           this.$router.push('/backend')
         })
-        console.log(response)
       } catch (err) {
-        console.log(err)
+        this.snackbarText = err.message
+        this.loading = false
+        this.snackbar = true
       }
     }
   }
 }
 </script>
+
+<style>
+  .background{
+    background-image: url(https://picsum.photos/1920/1080?random) !important;
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    background-size: cover;
+  }
+</style>

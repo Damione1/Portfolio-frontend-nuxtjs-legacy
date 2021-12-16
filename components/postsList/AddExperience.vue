@@ -14,7 +14,7 @@
     </v-snackbar>
     <v-form
       ref="form"
-      @submit.prevent="submit"
+      @submit.prevent="$emit('submit', professionnalExperience)"
     >
       <v-container fluid>
         <v-row>
@@ -144,8 +144,9 @@
       </v-container>
       <v-card-actions>
         <v-btn
+          v-if="professionnalExperience._id"
           text
-          @click="deleteExperience"
+          @click="$emit('deleteExperience', professionnalExperience)"
         >
           Delete
         </v-btn>
@@ -161,7 +162,7 @@
           :disabled="!formIsValid"
           text
           color="primary"
-          @click="updateExperience"
+          @click="$emit('submit', professionnalExperience)"
         >
           Update
         </v-btn>
@@ -173,20 +174,14 @@
 <script>
 
 export default {
-  layout: 'backend',
-  middleware: 'auth',
-  async asyncData ({ $axios, route }) {
-    const { id } = route.params
-    const res = await $axios({ url: '/api/workExperiences/' + id })
-    return { professionnalExperience: res.data }
+  props: {
+    post: {
+      type: Object,
+      required: true
+    }
   },
   data () {
-    const professionnalExperience = Object.freeze({
-      lang: 'en'
-    })
-
     return {
-      form: Object.assign({}, professionnalExperience),
       rules: {
         age: [
           val => val < 10 || 'I don\'t believe you!'
@@ -196,12 +191,11 @@ export default {
       snackbar: false,
       terms: false,
       snackBarContent: 'Experience updated successfully',
-      professionnalExperience,
-
       startDate: false,
       endDate: false,
       modal: false,
-      menu2: false
+      menu2: false,
+      professionnalExperience: this.post
     }
   },
   computed: {
@@ -214,26 +208,10 @@ export default {
     }
   },
   methods: {
-    updateExperience () {
-      this.$axios.patch('/api/workExperiences/' + this.professionnalExperience._id, this.professionnalExperience)
-        .then(() => {
-          this.snackBarContent = 'Experience updated successfully'
-          this.snackbar = true
-          this.$router.push('/backend/work-experiences/')
-        })
-    },
-    deleteExperience () {
-      this.$axios.delete('/api/workExperiences/' + this.professionnalExperience._id)
-        .then((res) => {
-          this.snackbar = true
-          this.snackBarContent = res.data.message
-          this.$router.push('/backend/work-experiences/')
-        })
-    },
     to () {
       this.$router.go(-1)
     }
   }
-
 }
+
 </script>

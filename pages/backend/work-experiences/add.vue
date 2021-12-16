@@ -1,17 +1,5 @@
 <template>
-  <div>
-    <h1>Work Experiences - Edit</h1>
-    <input v-model="professionnalExperience.company" type="text" placeholder="Company">
-    <input v-model="professionnalExperience.position" type="text" placeholder="Position">
-    <input v-model="professionnalExperience.description" type="textarea" placeholder="Description">
-    <input v-model="professionnalExperience.startDate" type="date" placeholder="StartDate">
-    <input v-if="false === professionnalExperience.current" v-model="professionnalExperience.endDate" type="date" placeholder="EndDate">
-    Current?<input v-model="professionnalExperience.current" type="checkbox">
-    <input v-model="professionnalExperience.language" type="text" placeholder="Language ">
-    <button type="submit" @click="addExperience">
-      Add
-    </button>
-  </div>
+  <PostsListAddExperience post="professionnalExperience" />
 </template>
 
 <script>
@@ -22,17 +10,21 @@ export default {
   data () {
     return {
       professionnalExperience: {
+        company: null,
+        position: null,
+        startDate: null,
+        endDate: null,
+        description: null,
         language: 'en',
         current: true
       }
     }
   },
   methods: {
-    async addExperience () {
-      await this.$axios.post('/api/workExperiences/', this.professionnalExperience)
+    async submit (formData) {
+      await this.$axios.post('/api/workExperiences/', formData)
         .then((res) => {
           const postId = res.data._id
-          console.log(res)
           this.$router.push('/backend/work-experiences/' + postId)
         })
     }

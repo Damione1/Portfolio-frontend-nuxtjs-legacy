@@ -1,32 +1,8 @@
 <template>
   <div>
-    <h1>Work Experiences</h1>
-    <ul>
-      <li
-        v-for="professionnalExperience in professionnalExperiences"
-        :key="professionnalExperience._id"
-      >
-        <ul>
-          <li>{{ professionnalExperience.position }}</li>
-          <li>{{ professionnalExperience.company }}</li>
-          <li>{{ professionnalExperience.description }}</li>
-          <li>{{ professionnalExperience.startDate }}</li>
-          <li>{{ professionnalExperience.endDate }}</li>
-          <li>
-            <nuxt-link :to="'/backend/work-experiences/' + professionnalExperience._id">
-              Editer
-            </nuxt-link>
-            <button @click="deletePost(professionnalExperience._id)">
-              Supprimer
-            </button>
-          </li>
-        </ul>
-        ---
-      </li>
-    </ul>
-    <nuxt-link to="/backend/work-experiences/add">
-      <button>Ajouter une expérience</button>
-    </nuxt-link>
+    <h1>{{ title }}</h1>
+
+    <PostsListListing :posts="professionnalExperiences" />
   </div>
 </template>
 
@@ -41,7 +17,13 @@ export default {
   },
   data () {
     return {
-      professionnalExperiences: []
+      professionnalExperiences: [],
+      title: 'Work Experiences'
+    }
+  },
+  head () {
+    return {
+      title: this.title
     }
   },
   methods: {
