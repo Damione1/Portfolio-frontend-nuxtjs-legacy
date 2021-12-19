@@ -1,5 +1,5 @@
 <template>
-  <PostsListAddExperience post="professionnalExperience" />
+  <PostsListAddExperience :post="professionnalExperience" @submitExperience="submit" />
 </template>
 
 <script>

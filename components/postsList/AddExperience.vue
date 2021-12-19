@@ -142,6 +142,7 @@
           </v-col>
         </v-row>
       </v-container>
+      {{ professionnalExperience.startDate }} {{ professionnalExperience.endDate }}
       <v-card-actions>
         <v-btn
           v-if="professionnalExperience._id"
@@ -162,7 +163,7 @@
           :disabled="!formIsValid"
           text
           color="primary"
-          @click="$emit('submit', professionnalExperience)"
+          @click="$emit('submitExperience', professionnalExperience)"
         >
           Update
         </v-btn>
@@ -180,6 +181,7 @@ export default {
       required: true
     }
   },
+  emits: ['submit'],
   data () {
     return {
       rules: {
