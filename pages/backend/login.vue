@@ -1,16 +1,20 @@
 <template>
   <v-app>
-    <div class="background"></div>
+    <div class="background" />
     <v-main class="d-flex justify-center align-center">
       <v-col cols="10" lg="4" class="mx-auto">
         <v-card class="pa-4">
           <div class="text-center">
             <v-avatar size="100" color="indigo lighten-4">
-              <v-icon size="40" color="indigo">mdi-account</v-icon>
+              <v-icon size="40" color="indigo">
+                mdi-account
+              </v-icon>
             </v-avatar>
-            <h2 class="indigo--text">Vue login Page</h2>
+            <h2 class="indigo--text">
+              Vue login Page
+            </h2>
           </div>
-          <v-form @submit.prevent="userLogin" ref="form">
+          <v-form ref="form" @submit.prevent="userLogin">
             <v-card-text>
               <v-text-field
                 v-model="login.email"
@@ -22,17 +26,17 @@
                 required
               />
               <v-text-field
-                      v-model="login.password"
-                      :rules="passwordRules"
-                      :type="passwordShow?'text':'password'"
-                      label="Password"
-                      placeholder="Password"
-                      prepend-inner-icon="mdi-key"
-                      :append-icon="passwordShow ? 'mdi-eye':'mdi-eye-off'"
-                      @click:append="passwordShow = !passwordShow"
-                      required
+                v-model="login.password"
+                :rules="passwordRules"
+                :type="passwordShow?'text':'password'"
+                label="Password"
+                placeholder="Password"
+                prepend-inner-icon="mdi-key"
+                :append-icon="passwordShow ? 'mdi-eye':'mdi-eye-off'"
+                required
+                @click:append="passwordShow = !passwordShow"
               />
-              <v-switch label="Remember me" color="indigo"></v-switch>
+              <v-switch label="Remember me" color="indigo" />
             </v-card-text>
             <v-card-actions class="justify-center">
               <v-btn :loading="loading" type="submit" color="indigo">
@@ -43,7 +47,7 @@
         </v-card>
       </v-col>
     </v-main>
-    <v-snackbar bottom color="green" v-model="snackbar">
+    <v-snackbar v-model="snackbar" bottom color="green">
       {{ snackbarText }}
     </v-snackbar>
   </v-app>
@@ -54,8 +58,8 @@ export default {
   data () {
     return {
       login: {
-        email: 'damien.goehrig4@gmail.com',
-        password: 'a123456b'
+        email: '',
+        password: ''
       },
       error: null,
       loading: false,

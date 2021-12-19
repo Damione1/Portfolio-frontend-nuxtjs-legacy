@@ -5,7 +5,7 @@
       absolute
       top
       right
-      color="success"
+      :color="snackbarType"
     >
       <span>{{ snackBarContent }}</span>
       <v-icon dark>
@@ -26,13 +26,27 @@ export default {
     const res = await $axios({ url: '/api/workExperiences/' + id })
     return { professionnalExperience: res.data }
   },
+  data () {
+    return {
+      nackBarContent: 'Experience updated successfully',
+      snackbarType: 'success',
+      snackbar: false
+    }
+  },
   methods: {
     updateExperience (formData) {
       this.$axios.patch('/api/workExperiences/' + formData._id, formData)
         .then(() => {
           this.snackBarContent = 'Experience updated successfully'
           this.snackbar = true
+          this.snackbarType = 'success'
           this.$router.push('/backend/work-experiences/')
+        }).catch((e) => {
+          if (e.response) {
+            this.snackBarContent = e.response.data.message
+            this.snackbar = true
+            this.snackbarType = 'error'
+          }
         })
     },
     deleteExperience (formData) {
@@ -40,7 +54,14 @@ export default {
         .then((res) => {
           this.snackbar = true
           this.snackBarContent = res.data.message
+          this.snackbarType = 'success'
           this.$router.push('/backend/work-experiences/')
+        }).catch((e) => {
+          if (e.response) {
+            this.snackBarContent = e.response.data.message
+            this.snackbar = true
+            this.snackbarType = 'error'
+          }
         })
     }
   }
