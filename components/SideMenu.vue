@@ -44,6 +44,15 @@
           Work Experiences
         </v-list-item-title>
       </v-list-item>
+
+      <v-list-item link to="/backend/qualifications" nuxt>
+        <v-list-item-icon>
+          <v-icon>mdi-folder</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>
+          Qualifications
+        </v-list-item-title>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>

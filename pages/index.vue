@@ -17,7 +17,7 @@
 
 export default {
   async asyncData ({ $axios }) {
-    const res = await $axios.$get('/api/workExperienceslolool')
+    const res = await $axios.$get('/api/workExperiences')
     return { professionnalExperiences: res }
   }
 }

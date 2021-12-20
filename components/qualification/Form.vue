@@ -1,7 +1,7 @@
 <template>
   <v-form
     ref="form"
-    @submit.prevent="$emit('submitExperience', professionnalExperience)"
+    @submit.prevent="$emit('submitQualification', qualification)"
   >
     <v-container fluid>
       <v-row>
@@ -10,10 +10,10 @@
           sm="6"
         >
           <v-text-field
-            v-model="professionnalExperience.company"
+            v-model="qualification.school"
             :rules="rules.text"
             color="purple darken-2"
-            label="Company"
+            label="School"
             required
           />
         </v-col>
@@ -22,10 +22,10 @@
           sm="6"
         >
           <v-text-field
-            v-model="professionnalExperience.position"
+            v-model="qualification.grade"
             :rules="rules.text"
             color="blue darken-2"
-            label="Position"
+            label="Grade"
             required
           />
         </v-col>
@@ -34,7 +34,7 @@
           sm="2"
         >
           <v-checkbox
-            v-model="professionnalExperience.current"
+            v-model="qualification.current"
             label="Current"
             color="purple darken-2"
           /></v-checkbox>
@@ -44,14 +44,14 @@
             ref="startDate"
             v-model="startDate"
             :close-on-content-click="false"
-            :return-value.sync="professionnalExperience.startDate"
+            :return-value.sync="qualification.startDate"
             transition="scale-transition"
             offset-y
             min-width="auto"
           >
             <template #activator="{ on, attrs }">
               <v-text-field
-                v-model="professionnalExperience.startDate"
+                v-model="qualification.startDate"
                 label="Entry date"
                 prepend-icon="mdi-calendar"
                 readonly
@@ -60,7 +60,7 @@
               />
             </template>
             <v-date-picker
-              v-model="professionnalExperience.startDate"
+              v-model="qualification.startDate"
               no-title
               scrollable
             >
@@ -75,7 +75,7 @@
               <v-btn
                 text
                 color="primary"
-                @click="$refs.startDate.save(professionnalExperience.startDate)"
+                @click="$refs.startDate.save(qualification.startDate)"
               >
                 OK
               </v-btn>
@@ -84,18 +84,18 @@
         </v-col>
         <v-col cols="12" sm="5">
           <v-menu
-            v-if="!professionnalExperience.current"
+            v-if="!qualification.current"
             ref="endDate"
             v-model="endDate"
             :close-on-content-click="false"
-            :return-value.sync="professionnalExperience.endDate"
+            :return-value.sync="qualification.endDate"
             transition="scale-transition"
             offset-y
             min-width="auto"
           >
             <template #activator="{ on, attrs }">
               <v-text-field
-                v-model="professionnalExperience.endDate"
+                v-model="qualification.endDate"
                 label="End date"
                 prepend-icon="mdi-calendar"
                 readonly
@@ -104,7 +104,7 @@
               />
             </template>
             <v-date-picker
-              v-model="professionnalExperience.endDate"
+              v-model="qualification.endDate"
               no-title
               scrollable
             >
@@ -119,7 +119,7 @@
               <v-btn
                 text
                 color="primary"
-                @click="$refs.endDate.save(professionnalExperience.endDate)"
+                @click="$refs.endDate.save(qualification.endDate)"
               >
                 OK
               </v-btn>
@@ -128,7 +128,7 @@
         </v-col>
         <v-col cols="12">
           <v-textarea
-            v-model="professionnalExperience.description"
+            v-model="qualification.description"
             color="teal"
           >
             <template #label>
@@ -142,9 +142,9 @@
     </v-container>
     <v-card-actions>
       <v-btn
-        v-if="professionnalExperience._id"
+        v-if="qualification._id"
         text
-        @click="$emit('deleteExperience', professionnalExperience)"
+        @click="$emit('deleteQualification', qualification)"
       >
         Delete
       </v-btn>
@@ -160,7 +160,7 @@
         :disabled="!formIsValid"
         text
         color="primary"
-        @click="$emit('submitExperience', professionnalExperience)"
+        @click="$emit('submitQualification', qualification)"
       >
         Update
       </v-btn>
@@ -191,17 +191,17 @@ export default {
       endDate: false,
       modal: false,
       menu2: false,
-      professionnalExperience: this.post
+      qualification: this.post
     }
   },
   computed: {
     formIsValid () {
       return (
-        this.professionnalExperience.company &&
-          this.professionnalExperience.position &&
-          this.professionnalExperience.description &&
-          this.professionnalExperience.startDate &&
-          (this.professionnalExperience.endDate || this.professionnalExperience.current)
+        this.qualification.school &&
+          this.qualification.grade &&
+          this.qualification.description &&
+          this.qualification.startDate &&
+          (this.qualification.endDate || this.qualification.current)
       )
     }
   },
