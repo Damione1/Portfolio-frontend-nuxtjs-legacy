@@ -108,6 +108,6 @@ export default {
     build: { postcss: null },
 
     server: {
-        port: 3001
+        port: process.env.PORT
     }
 }
