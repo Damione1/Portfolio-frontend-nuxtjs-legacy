@@ -53,6 +53,15 @@
           Qualifications
         </v-list-item-title>
       </v-list-item>
+
+      <v-list-item link to="/backend/skills" nuxt>
+        <v-list-item-icon>
+          <v-icon>mdi-folder</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>
+          Skills
+        </v-list-item-title>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
