@@ -62,6 +62,24 @@
           Skills
         </v-list-item-title>
       </v-list-item>
+
+      <v-list-item link to="/backend/projects" nuxt>
+        <v-list-item-icon>
+          <v-icon>mdi-folder</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>
+          Projects
+        </v-list-item-title>
+      </v-list-item>
+
+      <v-list-item link to="/backend/medias" nuxt>
+        <v-list-item-icon>
+          <v-icon>mdi-image</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>
+          Medias
+        </v-list-item-title>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>

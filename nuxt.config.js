@@ -101,7 +101,8 @@ export default {
     ],
 
     proxy: {
-        '/api': process.env.API_URL
+        '/api': process.env.API_URL,
+        '/files': process.env.API_URL
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
