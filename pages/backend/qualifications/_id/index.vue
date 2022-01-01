@@ -28,7 +28,7 @@ export default {
   },
   data () {
     return {
-      nackBarContent: 'Qualification updated successfully',
+      snackBarContent: 'Qualification updated successfully',
       snackbarType: 'success',
       snackbar: false
     }

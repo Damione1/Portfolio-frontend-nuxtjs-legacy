@@ -11,9 +11,9 @@
         >
           <!-- display image -->
           <v-img
-            v-if="media.fileName"
-            :src="`/files/`+media.fileName"
-            :lazy-src="`/files/`+media.fileName"
+            v-if="media.url"
+            :src="media.url"
+            :lazy-src="+media.url"
             aspect-ratio="1"
             class="grey lighten-2"
           >

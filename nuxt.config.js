@@ -108,6 +108,12 @@ export default {
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: { postcss: null },
 
+    /* add environment variables */
+    env: {
+        userId: process.env.USER_ID
+    },
+
+
     server: {
         port: 3001
     }

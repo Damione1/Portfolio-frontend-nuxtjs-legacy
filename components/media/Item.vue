@@ -4,8 +4,8 @@
     nuxt
   >
     <v-img
-      :src="`/files/`+mediaItem.fileName"
-      :lazy-src="`/files/`+mediaItem.fileName"
+      :src="mediaItem.url"
+      :lazy-src="mediaItem.url"
       aspect-ratio="1"
       class="grey lighten-2"
     >
