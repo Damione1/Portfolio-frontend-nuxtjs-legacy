@@ -1,14 +1,15 @@
 <template>
   <v-app>
     <SideMenu />
+    <Navbar />
     <v-main>
-      <Navbar />
-      <!-- margin top -->
-
-      <v-container>
+      <v-container fluid>
         <nuxt />
       </v-container>
     </v-main>
+    <v-footer app>
+      <!--  -->
+    </v-footer>
   </v-app>
 </template>
 

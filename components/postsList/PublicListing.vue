@@ -1,6 +1,5 @@
 <template>
   <v-card
-
     flat
   >
     <v-card-text class="py-0">
@@ -8,10 +7,10 @@
         align-top
         dense
       >
-        <QualificationPublicItem
-          v-for="qualification in qualificationsList"
-          :key="qualification.id"
-          :qualification-item="qualification"
+        <PostsListPublicItem
+          v-for="post in postsList"
+          :key="post.id"
+          :post="post"
         />
       </v-timeline>
     </v-card-text>
@@ -29,12 +28,12 @@ export default {
   },
   data () {
     return {
-      qualificationsList: []
+      postsList: []
     }
   },
   async fetch () {
     const res = await this.$axios.get(`/api/qualifications/public/${this.userId}`)
-    this.qualificationsList = res.data
+    this.postsList = res.data
   }
 }
 </script>

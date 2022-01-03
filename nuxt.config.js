@@ -78,7 +78,8 @@ export default {
     vuetify: {
         icons: {
             iconfont: 'mdiSvg' // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
-        }
+        },
+        theme: { dark: true }
     },
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,
@@ -101,8 +102,7 @@ export default {
     ],
 
     proxy: {
-        '/api': process.env.API_URL,
-        '/files': process.env.API_URL
+        '/api': process.env.API_URL
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build

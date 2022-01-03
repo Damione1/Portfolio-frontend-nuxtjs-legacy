@@ -31,7 +31,7 @@ export default {
       this.$router.push(`/backend/projects/${id}`)
     },
     deletePost (id) {
-      this.$axios.delete(`/api/project/${id}`).then(() => {
+      this.$axios.delete(`/api/projects/${id}`).then(() => {
         this.fetchPosts()
       })
     },

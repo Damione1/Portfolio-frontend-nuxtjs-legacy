@@ -15,10 +15,6 @@
         <div class="text-caption">
           {{ post.description }}
         </div>
-
-        <v-btn icon :to="'/backend/work-experiences/' + post._id" nuxt>
-          <v-icon>mdi-plus</v-icon>
-        </v-btn>
       </v-col>
     </v-row>
   </v-timeline-item>
