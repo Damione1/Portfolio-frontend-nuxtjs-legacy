@@ -90,7 +90,8 @@ export default {
         '@nuxt/typescript-build',
         '@nuxtjs/vuetify',
         '@nuxtjs/eslint-module',
-        '@nuxtjs/date-fns'
+        '@nuxtjs/date-fns',
+        '@nuxtjs/tailwindcss'
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules

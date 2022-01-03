@@ -1,39 +1,18 @@
 <template>
-  <v-layout
-    align-center
-    justify-center
-  >
-    <v-card>
-      <v-layout row wrap>
-        <v-flex xs12>
-          <h1 class="title">
+  <div class="relative bg-white overflow-hidden">
+    <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+      <div class="relative mx-auto px-4 sm:px-6 lg:px-8 sm:static">
+        <div class="sm:max-w-lg">
+          <h1 class="text-4xl font font-extrabold tracking-tight text-gray-900 sm:text-6xl">
             {{ mainTitle }}
           </h1>
-        </v-flex>
-        <v-flex xs12>
-          <h2 class="subtitle">
+          <p class="mt-4 text-xl text-gray-500">
             {{ subTitle }}
-          </h2>
-        </v-flex>
-        <!-- add a scroll icon below the title -->
-        <v-flex
-          xs12
-          align-center
-          justify-center
-        >
-          <v-btn
-            icon
-            large
-            class="scroll-down"
-
-            @click="$vuetify.goTo('#main-content')"
-          >
-            <v-icon>mdi-chevron-down</v-icon>
-          </v-btn>
-        </v-flex>
-      </v-layout>
-    </v-card>
-  </v-layout>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

@@ -1,21 +1,17 @@
 <template>
-  <v-main>
-    <v-container fill-height>
-      <HeadTitle :main-title="mainTitle" :sub-title="subTitle" />
-    </v-container>
-    <v-container>
-      <QualificationPublicListing :user-id="userId" />
-    </v-container>
-    <v-container>
-      <ProjectPublicListing :user-id="userId" />
-    </v-container>
-    <v-container>
-      <PostsListPublicListing :user-id="userId" />
-    </v-container>
-    <v-container>
-      <SkillPublicListing :user-id="userId" />
-    </v-container>
-  </v-main>
+  <content>
+    <!-- This example requires Tailwind CSS v2.0+ -->
+
+    <HeadTitle :main-title="mainTitle" :sub-title="subTitle" />
+
+    <QualificationPublicListing :user-id="userId" />
+
+    <ProjectPublicListing :user-id="userId" />
+
+    <PostsListPublicListing :user-id="userId" />
+
+    <SkillPublicListing :user-id="userId" />
+  </content>
 </template>
 
 <script>
