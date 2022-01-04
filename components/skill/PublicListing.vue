@@ -1,13 +1,15 @@
 <template>
-  <v-card
-    flat
-  >
-    <SkillPublicItem
-      v-for="skill in skillsList"
-      :key="skill.id"
-      :skill-item="skill"
-    />
-  </v-card>
+  <section class="text-gray-800 body-font my-40">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap -m-4 text-center">
+        <SkillPublicItem
+          v-for="skill in skillsList"
+          :key="skill.id"
+          :skill-item="skill"
+        />
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -15,6 +17,14 @@
 export default {
   props: {
     userId: {
+      type: String,
+      required: true
+    },
+    mainTitle: {
+      type: String,
+      required: true
+    },
+    subTitle: {
       type: String,
       required: true
     }

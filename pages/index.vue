@@ -1,17 +1,15 @@
 <template>
-  <content>
-    <!-- This example requires Tailwind CSS v2.0+ -->
+  <div class="">
+    <HeadTitle :main-title="header.mainTitle" :sub-title="header.subTitle" />
 
-    <HeadTitle :main-title="mainTitle" :sub-title="subTitle" />
+    <PostsListPublicListing :user-id="userId" :main-title="workExperiences.mainTitle" :sub-title="workExperiences.subTitle" />
 
-    <QualificationPublicListing :user-id="userId" />
+    <SkillPublicListing :user-id="userId" :main-title="skill.mainTitle" :sub-title="skill.subTitle" />
 
-    <ProjectPublicListing :user-id="userId" />
+    <QualificationPublicListing :user-id="userId" :main-title="qualification.mainTitle" :sub-title="qualification.subTitle" />
 
-    <PostsListPublicListing :user-id="userId" />
-
-    <SkillPublicListing :user-id="userId" />
-  </content>
+    <ProjectPublicListing :user-id="userId" :main-title="project.mainTitle" :sub-title="project.subTitle" />
+  </div>
 </template>
 
 <script>
@@ -20,8 +18,27 @@ export default {
   data () {
     return {
       userId: process.env.userId,
-      mainTitle: 'Hi, i\'m a web developer',
-      subTitle: "I'm a frontend developer with a passion for building web applications. I'm currently working as a freelancer and I'm looking for new opportunities to work on web projects."
+      project: {
+        mainTitle: 'Projects',
+        subTitle: 'My projects'
+      },
+      workExperiences: {
+        mainTitle: 'Work experiences',
+        subTitle: 'My work experiences'
+      },
+      skill: {
+        mainTitle: 'Skills',
+        subTitle: 'My skills'
+      },
+      qualification: {
+        mainTitle: 'Qualifications',
+        subTitle: 'My qualifications'
+      },
+      header: {
+        mainTitle: 'Hi, i\'m a web developer',
+        subTitle: "I'm a frontend developer with a passion for building web applications. I'm currently working as a freelancer and I'm looking for new opportunities to work on web projects."
+      }
+
     }
   }
 }

@@ -1,27 +1,22 @@
 <template>
-  <v-timeline-item
-    color="teal lighten-3"
-    small
-  >
-    <v-row class="pt-1">
-      <v-col cols="5">
-        <strong>{{ $dateFns.format(qualificationItem.startDate, 'MMM yyyy' ) }} - {{ qualificationItem.current ? 'Present' : $dateFns.format(qualificationItem.endDate, 'MMM yyyy' ) }}</strong>
-      </v-col>
-      <v-col>
-        <strong>{{ qualificationItem.grade }}</strong>
-        <div class="text-caption mb-2">
+  <div class="p-4 w-full lg:w-1/3 sm:w-1/2">
+    <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col">
+      <div class="flex-grow">
+        <h2 class="text-gray-900 text-lg title-font font-medium mb-3">
           {{ qualificationItem.school }}
-        </div>
-        <div class="text-caption">
+        </h2>
+        <h2 class="text-gray-900 text-lg title-font font-medium mb-3">
+          {{ qualificationItem.grade }}
+        </h2>
+        <p class="leading-relaxed text-base">
+          {{ $dateFns.format(qualificationItem.startDate, 'MMM yyyy' ) }} - {{ qualificationItem.current ? 'Present' : $dateFns.format(qualificationItem.endDate, 'MMM yyyy' ) }}
+        </p>
+        <p class="leading-relaxed text-base">
           {{ qualificationItem.description }}
-        </div>
-
-        <v-btn icon :to="'/backend/qualifications/' + qualificationItem._id" nuxt>
-          <v-icon>mdi-plus</v-icon>
-        </v-btn>
-      </v-col>
-    </v-row>
-  </v-timeline-item>
+        </p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">

@@ -1,15 +1,12 @@
 <template>
-  <v-card
-    flat
-  >
-    <h2>{{ skillItem.name }}</h2>
-    <v-progress-linear
-      color="light-blue"
-      height="10"
-      :value="skillItem.value"
-      striped
-    />
-  </v-card>
+  <div class="p-4 sm:w-1/4 w-1/2">
+    <h2 class="title-font font-medium sm:text-4xl text-3xl">
+      {{ skillItem.value }}%
+    </h2>
+    <p class="leading-relaxed">
+      {{ skillItem.name }}
+    </p>
+  </div>
 </template>
 
 <script lang="ts">
