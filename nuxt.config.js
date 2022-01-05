@@ -114,8 +114,7 @@ export default {
         userId: process.env.USER_ID
     },
 
-
     server: {
-        port: 3001
+        port: process.env.PORT || 3001
     }
 }

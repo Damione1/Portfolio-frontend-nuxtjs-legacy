@@ -1,3 +1,4 @@
+/* eslint-disable vue/html-end-tags */
 <template>
   <div>
     <h2>{{ skillItem.name }}</h2>
@@ -7,6 +8,12 @@
       :value="skillItem.value"
       striped
     />
+    <!-- edit link -->
+    <v-btn
+      :to="'/backend/skills/' + skillItem._id"
+    >
+      Edit
+    </v-btn>
   </div>
 </template>
 

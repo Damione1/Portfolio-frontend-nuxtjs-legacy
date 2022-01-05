@@ -11,7 +11,7 @@
               </v-icon>
             </v-avatar>
             <h2 class="indigo--text">
-              Vue login Page
+              Portfolio Admin Page
             </h2>
           </div>
           <v-form ref="form" @submit.prevent="userLogin">
@@ -36,7 +36,6 @@
                 required
                 @click:append="passwordShow = !passwordShow"
               />
-              <v-switch label="Remember me" color="indigo" />
             </v-card-text>
             <v-card-actions class="justify-center">
               <v-btn :loading="loading" type="submit" color="indigo">

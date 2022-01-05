@@ -1,7 +1,7 @@
 <template>
   <section class="text-gray-800 body-font my-40">
     <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-wrap -m-4 text-center">
+      <div class="grid grid-cols-6 gap-4">
         <SkillPublicItem
           v-for="skill in skillsList"
           :key="skill.id"

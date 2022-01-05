@@ -1,11 +1,16 @@
 <template>
-  <div class="p-4 sm:w-1/4 w-1/2">
-    <h2 class="title-font font-medium sm:text-4xl text-3xl">
-      {{ skillItem.value }}%
-    </h2>
-    <p class="leading-relaxed">
-      {{ skillItem.name }}
-    </p>
+  <div class="col-span-1 flex flex-col justify-center items-center">
+    <div class="p-10">
+      <img
+        v-if="skillItem.icon"
+        class="object-contain h-48 w-96"
+        :src="skillItem.icon.url"
+        alt="skill logo"
+      >
+      <p class="leading-relaxed title-font text-center">
+        {{ skillItem.name }}
+      </p>
+    </div>
   </div>
 </template>
 
