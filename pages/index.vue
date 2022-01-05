@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="container">
     <HeadTitle :main-title="header.mainTitle" :sub-title="header.subTitle" />
 
     <PostsListPublicListing :user-id="userId" :main-title="workExperiences.mainTitle" :sub-title="workExperiences.subTitle" />
@@ -27,29 +27,29 @@ export default {
         subTitle: 'My work experiences'
       },
       skill: {
-        mainTitle: 'Skills',
-        subTitle: 'My skills'
+        mainTitle: 'Stack',
+        subTitle: 'My stack'
       },
       qualification: {
         mainTitle: 'Qualifications',
         subTitle: 'My qualifications'
       },
       header: {
-        mainTitle: 'Hi, i\'m Damien, a backend web developer',
+        mainTitle: 'Hi, i\'m Damien,\n a backend web developer',
         subTitle: "I'm a senior backend web developer, with a passion for modern web technologies and a love for learning new things."
       }
 
     }
   },
   head: {
-    title: 'my website title',
+    title: 'Damien Goehrig - Portfolio',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: 'my website description'
+        content: 'Portfolio of Damien Goehrig, a senior backend web developer, with a passion for modern web technologies and a love for learning new things.'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]

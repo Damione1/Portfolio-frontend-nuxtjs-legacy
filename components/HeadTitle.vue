@@ -1,9 +1,9 @@
 <template>
   <div class="relative overflow-hidden">
-    <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+    <div class="pt-40 pb-20 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
       <div class="relative flex items-center justify-center mx-auto px-4 sm:px-6 lg:px-8 sm:static">
-        <div class="sm:max-w-md">
-          <h1 class="text-4xl font font-extrabold tracking-tight text-gray-900 sm:text-6xl">
+        <div class="sm:max-w-2xl">
+          <h1 class="text-4xl md:text-6xl font font-extrabold tracking-tight text-gray-900">
             {{ mainTitle }}
           </h1>
           <p class="mt-4 text-xl text-gray-500">
