@@ -1,6 +1,6 @@
 <template>
   <section class="text-gray-800 body-font my-40">
-    <div class="container px-5 py-24 mx-auto flex flex-wrap">
+    <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col w-full mb-20">
         <h2 v-if="mainTitle" class="text-xs tracking-widest font-medium title-font mb-1">
           {{ subTitle }}
@@ -9,11 +9,11 @@
           {{ mainTitle }}
         </h3>
       </div>
-      <div class="flex flex-wrap -m-4">
-        <QualificationPublicItem
-          v-for="qualification in qualificationsList"
-          :key="qualification.id"
-          :qualification-item="qualification"
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2 lg:gap-6">
+        <SkillPublicItem
+          v-for="skill in skillsList"
+          :key="skill.id"
+          :skill-item="skill"
         />
       </div>
     </div>
@@ -39,12 +39,12 @@ export default {
   },
   data () {
     return {
-      qualificationsList: []
+      skillsList: []
     }
   },
   async fetch () {
-    const res = await this.$axios.get(`/api/qualifications/public/${this.userId}`)
-    this.qualificationsList = res.data
+    const res = await this.$axios.get(`/api/skills/public/${this.userId}`)
+    this.skillsList = res.data
   }
 }
 </script>

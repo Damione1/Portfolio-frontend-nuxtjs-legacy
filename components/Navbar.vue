@@ -1,5 +1,6 @@
 <template>
   <v-app-bar
+    app
     dark
     shrink-on-scroll
     src="https://picsum.photos/1920/1080?random"

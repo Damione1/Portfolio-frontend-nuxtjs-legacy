@@ -3,16 +3,16 @@
     <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col">
       <div class="flex-grow">
         <h2 class="text-gray-900 text-lg title-font font-medium mb-3">
-          {{ qualificationItem.school }}
+          {{ post.company }}
         </h2>
         <h2 class="text-gray-900 text-lg title-font font-medium mb-3">
-          {{ qualificationItem.grade }}
+          {{ post.position }}
         </h2>
         <p class="leading-relaxed text-base">
-          {{ $dateFns.format(qualificationItem.startDate, 'MMM yyyy' ) }} - {{ qualificationItem.current ? 'Present' : $dateFns.format(qualificationItem.endDate, 'MMM yyyy' ) }}
+          {{ $dateFns.format(post.startDate, 'MMM yyyy' ) }} - {{ post.current ? 'Present' : $dateFns.format(post.endDate, 'MMM yyyy' ) }}
         </p>
         <p class="leading-relaxed text-base">
-          {{ qualificationItem.description }}
+          {{ post.description }}
         </p>
       </div>
     </div>
@@ -23,7 +23,7 @@
 
 export default {
   props: {
-    qualificationItem: {
+    post: {
       type: Object,
       required: true
     }

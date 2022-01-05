@@ -1,5 +1,5 @@
 <template>
-  <section class="text-gray-800 body-font my-40">
+  <section class="text-gray-800 my-40 body-font">
     <div class="container px-5 py-24 mx-auto flex flex-wrap">
       <div class="flex flex-col w-full mb-20">
         <h2 v-if="mainTitle" class="text-xs tracking-widest font-medium title-font mb-1">
@@ -10,10 +10,10 @@
         </h3>
       </div>
       <div class="flex flex-wrap -m-4">
-        <QualificationPublicItem
-          v-for="qualification in qualificationsList"
-          :key="qualification.id"
-          :qualification-item="qualification"
+        <ProjectPublicItem
+          v-for="project in projectsList"
+          :key="project.id"
+          :project-item="project"
         />
       </div>
     </div>
@@ -39,12 +39,12 @@ export default {
   },
   data () {
     return {
-      qualificationsList: []
+      projectsList: []
     }
   },
   async fetch () {
-    const res = await this.$axios.get(`/api/qualifications/public/${this.userId}`)
-    this.qualificationsList = res.data
+    const res = await this.$axios.get(`/api/projects/public/${this.userId}`)
+    this.projectsList = res.data
   }
 }
 </script>

@@ -33,6 +33,20 @@
             step="5"
           />
         </v-col>
+        <v-col
+          cols="12"
+          sm="12"
+        >
+          <!-- url field -->
+          <v-text-field
+            v-model="skill.icon"
+            color="purple darken-2"
+            label="Icon url"
+            prepend-inner-icon="mdi-link"
+            hint="https://www.example.com"
+            hint-always-show
+          />
+        </v-col>
       </v-row>
     </v-container>
     <v-card-actions>
@@ -85,7 +99,8 @@ export default {
       modal: false,
       menu2: false,
       skill: this.post,
-      value: 50
+      value: 50,
+      medias: this.post.images || []
     }
   },
   computed: {
@@ -99,6 +114,10 @@ export default {
   methods: {
     to () {
       this.$router.go(-1)
+    },
+    addMedia (media) {
+      this.medias.push(media)
+      this.project.images = this.mediaIdsList
     }
   }
 }

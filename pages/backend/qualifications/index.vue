@@ -1,9 +1,8 @@
 <template>
-  <div>
+  <v-card>
     <h1>{{ title }}</h1>
-
     <QualificationListing :posts="qualificationsList" />
-  </div>
+  </v-card>
 </template>
 
 <script>

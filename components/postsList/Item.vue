@@ -5,7 +5,7 @@
   >
     <v-row class="pt-1">
       <v-col cols="5">
-        <strong>{{ $dateFns.format(post.startDate, 'MMM yyyy' ) }} - {{ $dateFns.format(post.endDate, 'MMM yyyy' ) }}</strong>
+        <strong>{{ $dateFns.format(post.startDate, 'MMM yyyy' ) }} - {{ post.current ? 'Present' : $dateFns.format(post.endDate, 'MMM yyyy' ) }}</strong>
       </v-col>
       <v-col>
         <strong>{{ post.position }}</strong>

@@ -78,7 +78,8 @@ export default {
     vuetify: {
         icons: {
             iconfont: 'mdiSvg' // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
-        }
+        },
+        theme: { dark: true }
     },
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,
@@ -89,7 +90,8 @@ export default {
         '@nuxt/typescript-build',
         '@nuxtjs/vuetify',
         '@nuxtjs/eslint-module',
-        '@nuxtjs/date-fns'
+        '@nuxtjs/date-fns',
+        '@nuxtjs/tailwindcss'
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
@@ -101,8 +103,7 @@ export default {
     ],
 
     proxy: {
-        '/api': process.env.API_URL,
-        '/files': process.env.API_URL
+        '/api': process.env.API_URL
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -113,8 +114,7 @@ export default {
         userId: process.env.USER_ID
     },
 
-
     server: {
-        port: 3001
+        port: process.env.PORT || 3001
     }
 }

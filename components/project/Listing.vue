@@ -1,8 +1,6 @@
 <template>
   <v-card
     flat
-    class="mx-auto"
-    max-width="800"
   >
     <v-card-text class="py-0">
       <v-btn
