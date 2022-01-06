@@ -9,7 +9,7 @@
           {{ mainTitle }}
         </h3>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2 lg:gap-6">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-2 lg:gap-6">
         <SkillPublicItem
           v-for="skill in skillsList"
           :key="skill.id"
