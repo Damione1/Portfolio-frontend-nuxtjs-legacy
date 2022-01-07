@@ -16,6 +16,7 @@ export default {
         ]
     },
 
+    render: { fallback: false },
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [],
 
@@ -79,6 +80,10 @@ export default {
             iconfont: 'mdiSvg' // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
         },
         theme: { dark: true }
+    },
+
+    router: {
+        linkExactActiveClass: 'bg-gray-200 rounded'
     },
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,

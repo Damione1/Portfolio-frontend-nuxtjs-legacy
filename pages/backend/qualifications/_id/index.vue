@@ -24,6 +24,11 @@ export default {
   async asyncData ({ $axios, route }) {
     const { id } = route.params
     const res = await $axios({ url: '/qualifications/' + id })
+    /* handle response error status code */
+    if (res.status !== 200) {
+      error.statusCode = res.status
+    }
+
     return { qualification: res.data }
   },
   data () {
