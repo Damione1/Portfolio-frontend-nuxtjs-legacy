@@ -23,7 +23,7 @@ export default {
   middleware: 'auth',
   async asyncData ({ $axios, route }) {
     const { id } = route.params
-    const res = await $axios({ url: '/api/workExperiences/' + id })
+    const res = await $axios({ url: '/workExperiences/' + id })
     return { professionnalExperience: res.data }
   },
   data () {
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     updateExperience (formData) {
-      this.$axios.patch('/api/workExperiences/' + formData._id, formData)
+      this.$axios.patch('/workExperiences/' + formData._id, formData)
         .then(() => {
           this.snackBarContent = 'Experience updated successfully'
           this.snackbar = true
@@ -50,7 +50,7 @@ export default {
         })
     },
     deleteExperience (formData) {
-      this.$axios.delete('/api/workExperiences/' + formData._id)
+      this.$axios.delete('/workExperiences/' + formData._id)
         .then((res) => {
           this.snackbar = true
           this.snackBarContent = res.data.message

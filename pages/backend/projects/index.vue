@@ -12,7 +12,7 @@ export default {
   layout: 'backend',
   middleware: 'auth',
   async asyncData ({ $axios }) {
-    const res = await $axios({ url: '/api/projects/' })
+    const res = await $axios({ url: '/projects/' })
     return { projectsList: res.data }
   },
   data () {
@@ -31,12 +31,12 @@ export default {
       this.$router.push(`/backend/projects/${id}`)
     },
     deletePost (id) {
-      this.$axios.delete(`/api/projects/${id}`).then(() => {
+      this.$axios.delete(`/projects/${id}`).then(() => {
         this.fetchPosts()
       })
     },
     fetchPosts () {
-      this.$axios.get('/api/projects/')
+      this.$axios.get('/projects/')
         .then((res) => {
           this.projectsList = res.data
         })

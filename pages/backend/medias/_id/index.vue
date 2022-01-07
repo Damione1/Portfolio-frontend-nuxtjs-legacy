@@ -23,7 +23,7 @@ export default {
   middleware: 'auth',
   async asyncData ({ $axios, route }) {
     const { id } = route.params
-    const res = await $axios({ url: '/api/upload/' + id })
+    const res = await $axios({ url: '/upload/' + id })
     return { media: res.data }
   },
   data () {
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     updateMedia (formData) {
-      this.$axios.patch('/api/upload/' + formData._id, formData)
+      this.$axios.patch('/upload/' + formData._id, formData)
         .then(() => {
           this.snackBarContent = 'Media updated successfully'
           this.snackbar = true
@@ -50,7 +50,7 @@ export default {
         })
     },
     deleteMedia (formData) {
-      this.$axios.delete('/api/upload/' + formData._id)
+      this.$axios.delete('/upload/' + formData._id)
         .then((res) => {
           this.snackbar = true
           this.snackBarContent = res.data.message

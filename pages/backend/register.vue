@@ -3,54 +3,60 @@
     <div class="container">
       <div class="columns">
         <div class="column is-4 is-offset-4">
-          <h2 class="title has-text-centered">Register!</h2>
+          <h2 class="title has-text-centered">
+            Register!
+          </h2>
 
-          <Notification :message="error" v-if="error"/>
+          <Notification v-if="error" :message="error" />
 
           <form method="post" @submit.prevent="register">
             <div class="field">
               <label class="label">Username</label>
               <div class="control">
                 <input
+                  v-model="username"
                   type="text"
                   class="input"
                   name="username"
-                  v-model="username"
                   required
-                />
+                >
               </div>
             </div>
             <div class="field">
               <label class="label">Email</label>
               <div class="control">
                 <input
+                  v-model="email"
                   type="email"
                   class="input"
                   name="email"
-                  v-model="email"
                   required
-                />
+                >
               </div>
             </div>
             <div class="field">
               <label class="label">Password</label>
               <div class="control">
                 <input
+                  v-model="password"
                   type="password"
                   class="input"
                   name="password"
-                  v-model="password"
                   required
-                />
+                >
               </div>
             </div>
             <div class="control">
-              <button type="submit" class="button is-dark is-fullwidth">Register</button>
+              <button type="submit" class="button is-dark is-fullwidth">
+                Register
+              </button>
             </div>
           </form>
 
           <div class="has-text-centered" style="margin-top: 20px">
-            Already got an account? <nuxt-link to="/backend/login">Login</nuxt-link>
+            Already got an account? <nuxt-link to="/backend/login">
+              Login
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -63,10 +69,10 @@ import Notification from '~/components/Notification'
 
 export default {
   components: {
-    Notification,
+    Notification
   },
 
-  data() {
+  data () {
     return {
       username: '',
       email: '',
@@ -76,7 +82,7 @@ export default {
   },
 
   methods: {
-    async register() {
+    async register () {
       try {
         await this.$axios.post('register', {
           username: this.username,
@@ -86,9 +92,9 @@ export default {
 
         await this.$auth.loginWith('local', {
           data: {
-          email: this.email,
-          password: this.password
-          },
+            email: this.email,
+            password: this.password
+          }
         })
 
         this.$router.push('/')

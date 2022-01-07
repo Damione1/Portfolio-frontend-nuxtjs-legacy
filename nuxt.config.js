@@ -27,8 +27,7 @@ export default {
      */
     axios: {
         baseURL: process.env.API_URL || 'http://localhost:4000',
-        credentials: true,
-        proxy: true
+        credentials: false
     },
 
     headers: {
@@ -60,10 +59,10 @@ export default {
                 autoLogout: false,
                 tokenRequired: true,
                 endpoints: {
-                    login: { url: '/api/auth/login', method: 'post' },
-                    refresh: { url: '/api/auth/refreshToken', method: 'post' },
-                    user: { url: '/api/auth/getCurrentUser', method: 'get' },
-                    logout: { url: '/api/auth/logout', method: 'get' }
+                    login: { url: process.env.API_URL + '/auth/login', method: 'post' },
+                    refresh: { url: process.env.API_URL + '/auth/refreshToken', method: 'post' },
+                    user: { url: process.env.API_URL + '/auth/getCurrentUser', method: 'get' },
+                    logout: { url: process.env.API_URL + '/auth/logout', method: 'get' }
                 }
             }
         }
@@ -98,13 +97,8 @@ export default {
     modules: [
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
-        '@nuxtjs/proxy',
-        '@nuxtjs/auth-next'
+        '@nuxtjs/auth-next', ['@nuxtjs/pwa', { meta: false, icon: false, manifest: false }]
     ],
-
-    proxy: {
-        '/api': process.env.API_URL
-    },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: { postcss: null },

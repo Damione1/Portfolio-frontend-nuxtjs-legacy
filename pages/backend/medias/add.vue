@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     async submit (formData) {
-      await this.$axios.post('/api/medias/', formData)
+      await this.$axios.post('/medias/', formData)
         .then((res) => {
           const postId = res.data._id
           this.$router.push('/backend/medias/' + postId)

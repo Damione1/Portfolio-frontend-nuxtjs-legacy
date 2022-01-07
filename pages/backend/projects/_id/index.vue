@@ -23,7 +23,7 @@ export default {
   middleware: 'auth',
   async asyncData ({ $axios, route }) {
     const { id } = route.params
-    const res = await $axios({ url: '/api/projects/' + id })
+    const res = await $axios({ url: '/projects/' + id })
     return { project: res.data }
   },
   data () {
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     updateProject (formData) {
-      this.$axios.patch('/api/projects/' + formData._id, formData)
+      this.$axios.patch('/projects/' + formData._id, formData)
         .then(() => {
           this.snackBarContent = 'Project updated successfully'
           this.snackbar = true
@@ -50,7 +50,7 @@ export default {
         })
     },
     deleteProject (formData) {
-      this.$axios.delete('/api/projects/' + formData._id)
+      this.$axios.delete('/projects/' + formData._id)
         .then((res) => {
           this.snackbar = true
           this.snackBarContent = res.data.message

@@ -1,4 +1,4 @@
-<template>
+*.vue<template>
   <div>
     <h1>{{ title }}</h1>
 
@@ -12,7 +12,7 @@ export default {
   layout: 'backend',
   middleware: 'auth',
   async asyncData ({ $axios }) {
-    const res = await $axios({ url: '/api/skills/' })
+    const res = await $axios({ url: '/skills/' })
     return { skillsList: res.data }
   },
   data () {
@@ -31,12 +31,12 @@ export default {
       this.$router.push(`/backend/skills/${id}`)
     },
     deletePost (id) {
-      this.$axios.delete(`/api/skill/${id}`).then(() => {
+      this.$axios.delete(`/skill/${id}`).then(() => {
         this.fetchPosts()
       })
     },
     fetchPosts () {
-      this.$axios.get('/api/skills/')
+      this.$axios.get('/skills/')
         .then((res) => {
           this.skillsList = res.data
         })

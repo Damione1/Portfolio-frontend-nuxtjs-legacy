@@ -43,7 +43,7 @@ export default {
     }
   },
   async fetch () {
-    const res = await this.$axios.get(`/api/workExperiences/public/${this.userId}`)
+    const res = await this.$axios.get(`/public/workexperience/${this.userId}`)
     this.postsList = res.data
   }
 }

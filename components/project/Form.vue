@@ -20,6 +20,18 @@
           cols="12"
           sm="12"
         >
+          <v-text-field
+            v-model="project.slug"
+            :disabled="true"
+            label="Slug"
+            outlined
+            prepend-icon="mdi-link"
+          />
+        </v-col>
+        <v-col
+          cols="12"
+          sm="12"
+        >
           <!-- textarea -->
           <v-textarea
             v-model="project.description"
