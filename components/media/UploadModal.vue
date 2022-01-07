@@ -61,7 +61,7 @@ export default {
     async uploadImage () {
       const formData = new FormData()
       formData.append('file', this.file)
-      await this.$axios.post('/api/upload', formData)
+      await this.$axios.post('/upload', formData)
         .then((res) => {
           this.$emit('fileUploaded', res.data)
           this.file = null

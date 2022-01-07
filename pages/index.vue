@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container max-w-screen-lg xl:max-w-screen-xl">
     <HeadTitle :main-title="header.mainTitle" :sub-title="header.subTitle" />
 
     <PostsListPublicListing :user-id="userId" :main-title="workExperiences.mainTitle" :sub-title="workExperiences.subTitle" />
@@ -35,7 +35,7 @@ export default {
         subTitle: 'My qualifications'
       },
       header: {
-        mainTitle: 'Hi, i\'m Damien,\n a backend web developer',
+        mainTitle: 'Hi, I\'m Damien,\n a backend web developer',
         subTitle: "I'm a senior backend web developer, with a passion for modern web technologies and a love for learning new things."
       }
 

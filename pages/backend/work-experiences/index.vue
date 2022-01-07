@@ -12,7 +12,7 @@ export default {
   layout: 'backend',
   middleware: 'auth',
   async asyncData ({ $axios }) {
-    const res = await $axios({ url: '/api/workExperiences/' })
+    const res = await $axios({ url: '/workExperiences/' })
     return { professionnalExperiences: res.data }
   },
   data () {
@@ -31,12 +31,12 @@ export default {
       this.$router.push(`/backend/work-experiences/${id}`)
     },
     deletePost (id) {
-      this.$axios.delete(`/api/workExperiences/${id}`).then(() => {
+      this.$axios.delete(`/workExperiences/${id}`).then(() => {
         this.fetchPosts()
       })
     },
     fetchPosts () {
-      this.$axios.get('/api/workExperiences/')
+      this.$axios.get('/workExperiences/')
         .then((res) => {
           this.professionnalExperiences = res.data
         })

@@ -1,7 +1,7 @@
 <template>
   <section class="text-gray-800 body-font my-40">
-    <div class="container px-5 py-24 mx-auto flex flex-wrap">
-      <div class="flex flex-col w-full mb-20">
+    <div class="py-24 flex flex-wrap">
+      <div class="flex flex-col w-full mb-10">
         <h2 v-if="mainTitle" class="text-xs tracking-widest font-medium title-font mb-1">
           {{ subTitle }}
         </h2>
@@ -9,7 +9,7 @@
           {{ mainTitle }}
         </h3>
       </div>
-      <div class="flex flex-wrap -m-4">
+      <div class="flex flex-wrap">
         <QualificationPublicItem
           v-for="qualification in qualificationsList"
           :key="qualification.id"
@@ -43,7 +43,7 @@ export default {
     }
   },
   async fetch () {
-    const res = await this.$axios.get(`/api/qualifications/public/${this.userId}`)
+    const res = await this.$axios.get(`/public/qualification/${this.userId}`)
     this.qualificationsList = res.data
   }
 }

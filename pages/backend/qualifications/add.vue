@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     async submit (formData) {
-      await this.$axios.post('/api/qualifications/', formData)
+      await this.$axios.post('/qualifications/', formData)
         .then((res) => {
           const postId = res.data._id
           this.$router.push('/backend/qualifications/' + postId)

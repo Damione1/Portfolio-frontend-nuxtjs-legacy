@@ -23,7 +23,7 @@ export default {
   middleware: 'auth',
   async asyncData ({ $axios, route }) {
     const { id } = route.params
-    const res = await $axios({ url: '/api/qualifications/' + id })
+    const res = await $axios({ url: '/qualifications/' + id })
     return { qualification: res.data }
   },
   data () {
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     updateQualification (formData) {
-      this.$axios.patch('/api/qualifications/' + formData._id, formData)
+      this.$axios.patch('/qualifications/' + formData._id, formData)
         .then(() => {
           this.snackBarContent = 'Qualification updated successfully'
           this.snackbar = true
@@ -50,7 +50,7 @@ export default {
         })
     },
     deleteQualification (formData) {
-      this.$axios.delete('/api/qualifications/' + formData._id)
+      this.$axios.delete('/qualifications/' + formData._id)
         .then((res) => {
           this.snackbar = true
           this.snackBarContent = res.data.message

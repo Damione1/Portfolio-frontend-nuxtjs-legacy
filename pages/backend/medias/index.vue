@@ -12,7 +12,7 @@ export default {
   layout: 'backend',
   middleware: 'auth',
   async asyncData ({ $axios }) {
-    const res = await $axios({ url: '/api/upload/' })
+    const res = await $axios({ url: '/upload/' })
     return { mediasList: res.data }
   },
   data () {
@@ -31,12 +31,12 @@ export default {
       this.$router.push(`/backend/medias/${id}`)
     },
     deletePost (id) {
-      this.$axios.delete(`/api/upload/${id}`).then(() => {
+      this.$axios.delete(`/upload/${id}`).then(() => {
         this.fetchPosts()
       })
     },
     fetchPosts () {
-      this.$axios.get('/api/upload/')
+      this.$axios.get('/upload/')
         .then((res) => {
           this.mediasList = res.data
         })
