@@ -9,6 +9,9 @@
           <nuxt-link to="/project" class="border-0 py-1 px-3  mr-5 hover:text-gray-900">
             Projects
           </nuxt-link>
+          <nuxt-link to="/blog" class="border-0 py-1 px-3  mr-5 hover:text-gray-900">
+            Blog
+          </nuxt-link>
         </nav>
       </div>
     </header>

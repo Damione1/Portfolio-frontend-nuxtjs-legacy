@@ -78,8 +78,14 @@ export default {
     vuetify: {
         icons: {
             iconfont: 'mdiSvg' // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
-        },
-        theme: { dark: true }
+        }
+    },
+
+    markdownit: {
+        preset: 'default',
+        linkify: true,
+        breaks: true,
+        injected: true
     },
 
     router: {
@@ -102,7 +108,8 @@ export default {
     modules: [
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
-        '@nuxtjs/auth-next', ['@nuxtjs/pwa', { meta: false, icon: false, manifest: false }]
+        '@nuxtjs/auth-next', ['@nuxtjs/pwa', { meta: false, icon: false, manifest: false }],
+        '@nuxtjs/markdownit'
     ],
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
