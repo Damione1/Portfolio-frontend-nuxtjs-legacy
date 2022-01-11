@@ -4,7 +4,7 @@
   >
     <v-card-text class="py-0">
       <v-btn
-        to="/backend/projects/add"
+        :to="`/backend/${adminPath}/add`"
         nuxt
       >
         Add new project
@@ -13,6 +13,7 @@
         v-for="post in posts"
         :key="post.id"
         :project-item="post"
+        :admin-path="adminPath"
       />
     </v-card-text>
   </v-card>
@@ -24,6 +25,10 @@ export default {
   props: {
     posts: {
       type: Array,
+      required: true
+    },
+    adminPath: {
+      type: String,
       required: true
     }
   }

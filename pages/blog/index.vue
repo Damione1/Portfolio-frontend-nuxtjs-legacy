@@ -4,10 +4,10 @@
       <div class="header flex items-end justify-between mb-12">
         <div class="title">
           <h1 class="text-4xl font-bold text-gray-800 mb-4">
-            My blogPosts
+            My Blog
           </h1>
           <p class="text-2xl font-light text-gray-400">
-            Here are some of my blogPosts
+            My discoveries, recipes, builds, and more
           </p>
         </div>
       </div>
@@ -23,7 +23,7 @@
                 {{ blogPost.category }}
               </p>
               <p v-if="blogPost.excerpt" class="text-gray-400 dark:text-gray-300 font-light text-md">
-                {{ blogPost.excerpt.substring(0, 100) }}
+                {{ blogPost.excerpt || '' }}
               </p>
               <div class="flex items-center mt-4">
                 <div class="flex flex-col justify-between text-sm">

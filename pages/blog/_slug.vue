@@ -37,8 +37,7 @@
             </div>
           </div>
           <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-            <!-- h1 title -->
-            <h1 class="text-gray-900 text-lg title-font font-medium mb-3">
+            <h1 class="text-gray-900 text-2xl title-font font-medium mb-3">
               {{ blogPost.title }}
             </h1>
             <div class="prose leading-relaxed text-lg mb-4" v-html="$md.render(blogPost.content)" />
@@ -67,15 +66,11 @@ export default {
     }
   },
   head () {
-    return { title: this.blogPost.title + ' | Damien Goehrig', meta: [{ hid: 'description', name: 'description', content: this.blogPost.excerpt }] }
+    return { title: this.blogPost.title + ' | Damien Goehrig', meta: [{ hid: 'description', name: 'description', content: this.blogPost.excerpt || '' }] }
   },
   computed: {
     getThumbnail () {
-      let thumbnail = 'https://generative-placeholders.glitch.me/image?width=1200&height=300&style=joy-division&colors=14'
-      if (this.blogPost && this.blogPost.images[0]) {
-        thumbnail = this.blogPost.images[0].url
-      }
-      return thumbnail
+      return this.blogPost.images[0] ? `${this.blogPost.images[0].url}` : 'https://generative-placeholders.glitch.me/image?width=1200&height=300&style=joy-division&colors=14'
     }
   }
 }

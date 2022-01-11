@@ -1,3 +1,4 @@
+import tailwindTypography from '@tailwindcss/typography';
 module.exports = {
     purge: [],
     media: false, // or 'media' or 'class'
@@ -7,5 +8,5 @@ module.exports = {
     variants: {
         extend: {},
     },
-    plugins: [],
+    plugins: [tailwindTypography],
 }

@@ -17,13 +17,10 @@
             <img alt="blog photo" :src="getPostThumbnail (project)" class="max-h-40 w-full object-cover">
             <div class="bg-white dark:bg-gray-800 w-full p-4">
               <p class="text-indigo-500 text-md font-medium">
-                {{ project.name }}
+                {{ project.title }}
               </p>
-              <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">
-                {{ project.name }}
-              </p>
-              <p class="text-gray-400 dark:text-gray-300 font-light text-md">
-                {{ project.description }}
+              <p v-if="project.content" class="text-gray-400 dark:text-gray-300 font-light text-md">
+                {{ project.excerpt || '' }}
               </p>
               <div class="flex items-center mt-4">
                 <div class="flex flex-col justify-between text-sm">

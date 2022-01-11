@@ -67,3 +67,20 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+
+
+## Project
+This site is my last personal project.
+It's a portfolio site that I built to improve my skills on the latest technologies. It consists of two applications: a Nuxt.js application as a frontend framework and a Node.js application as a backend API.
+
+The website is built using the following technologies:
+- Nuxt.js
+- Node.js
+- JWT authentication
+- MongoDB
+- Google App Engine for hosting
+- Google cloud storage for image storage
+
+[Github repository for the backend](https://github.com/Damione1/portfolio-nodejs)
+
+[Github repository for the frontend](https://github.com/Damione1/portfolio-frontend) 
