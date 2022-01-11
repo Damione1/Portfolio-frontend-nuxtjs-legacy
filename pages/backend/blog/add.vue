@@ -1,6 +1,6 @@
 <template>
   <v-card flat>
-    <ProjectForm :post="project" @submitProject="submitProject" />
+    <ProjectForm :post="blogpost" @submitProject="submitProject" />
   </v-card>
 </template>
 
@@ -11,7 +11,7 @@ export default {
   middleware: 'auth',
   data () {
     return {
-      project: {
+      blogpost: {
         title: '',
         content: '',
         excerpt: '',
@@ -24,10 +24,10 @@ export default {
   },
   methods: {
     async submitProject (formData) {
-      await this.$axios.post('/projects/', formData)
+      await this.$axios.post('/blogPosts/', formData)
         .then((res) => {
           const postId = res.data._id
-          this.$router.push('/backend/projects/' + postId)
+          this.$router.push('/backend/blog/' + postId)
         })
     }
   }

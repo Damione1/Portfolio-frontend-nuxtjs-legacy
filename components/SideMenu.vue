@@ -72,6 +72,15 @@
         </v-list-item-title>
       </v-list-item>
 
+      <v-list-item link to="/backend/blog" nuxt>
+        <v-list-item-icon>
+          <v-icon>mdi-folder</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>
+          Blog
+        </v-list-item-title>
+      </v-list-item>
+
       <v-list-item link to="/backend/medias" nuxt>
         <v-list-item-icon>
           <v-icon>mdi-image</v-icon>

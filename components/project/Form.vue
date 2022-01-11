@@ -10,7 +10,7 @@
           sm="6"
         >
           <v-text-field
-            v-model="project.name"
+            v-model="project.title"
             color="purple darken-2"
             label="Name"
             required
@@ -30,15 +30,23 @@
         </v-col>
         <v-col
           cols="12"
-          sm="12"
+          sm="6"
         >
           <!-- textarea -->
           <v-textarea
-            v-model="project.description"
+            v-model="project.content"
             color="purple darken-2"
             label="Description"
             required
           />
+        </v-col>
+        <v-col
+          cols="12"
+          sm="6"
+        >
+          <v-card>
+            <div class="" v-html="$md.render(project.content)" />
+          </v-card>
         </v-col>
         <v-col
           cols="12"
@@ -51,7 +59,7 @@
         </v-col>
         <v-col
           cols="12"
-          sm="12"
+          sm="6"
         >
           <v-combobox
             v-model="project.tags"
@@ -60,6 +68,17 @@
             multiple
             outlined
             dense
+          />
+        </v-col>
+        <v-col
+          cols="12"
+          sm="6"
+        >
+          <v-textarea
+            v-model="project.excerpt"
+            color="purple darken-2"
+            label="Description"
+            required
           />
         </v-col>
         <v-col
@@ -126,7 +145,28 @@ export default {
         'Art',
         'Music',
         'Writing',
-        'Other'
+        'Other',
+        'Nuxt.js',
+        'Vue.js',
+        'React.js',
+        'Angular.js',
+        'Node.js',
+        'Express.js',
+        'MongoDB',
+        'MySQL',
+        'PHP',
+        'WordPress',
+        'HTML',
+        'CSS',
+        'Sass',
+        'JavaScript',
+        'jQuery',
+        'Google Analytics',
+        'Google App Engine',
+        'Google Cloud Platform',
+        'Google Cloud Firebase',
+        'Google Cloud Storage',
+        'JWT Authentication'
       ],
       terms: false,
       modal: false,
@@ -139,8 +179,8 @@ export default {
   computed: {
     formIsValid () {
       return (
-        this.project.name &&
-          this.project.description
+        this.project.title &&
+          this.project.content
       )
     },
     mediaIdsList () {

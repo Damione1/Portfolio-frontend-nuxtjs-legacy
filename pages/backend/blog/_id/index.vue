@@ -12,7 +12,7 @@
         mdi-checkbox-marked-circle
       </v-icon>
     </v-snackbar>
-    <QualificationForm :post="qualification" @submitQualification="updateQualification" @deleteQualification="deleteQualification" />
+    <ProjectForm :post="blogPost" @submitProject="updateBlogPost" @deleteBlogPost="deleteBlogPost" />
   </v-card>
 </template>
 
@@ -23,29 +23,24 @@ export default {
   middleware: 'auth',
   async asyncData ({ $axios, route }) {
     const { id } = route.params
-    const res = await $axios({ url: '/qualifications/' + id })
-    /* handle response error status code */
-    if (res.status !== 200) {
-      error.statusCode = res.status
-    }
-
-    return { qualification: res.data }
+    const res = await $axios({ url: '/blogPosts/' + id })
+    return { blogPost: res.data }
   },
   data () {
     return {
-      snackBarContent: 'Qualification updated successfully',
+      snackBarContent: 'blog post updated successfully',
       snackbarType: 'success',
       snackbar: false
     }
   },
   methods: {
-    updateQualification (formData) {
-      this.$axios.patch('/qualifications/' + formData._id, formData)
+    updateBlogPost (formData) {
+      this.$axios.patch('/blogPosts/' + formData._id, formData)
         .then(() => {
-          this.snackBarContent = 'Qualification updated successfully'
+          this.snackBarContent = 'blogPost updated successfully'
           this.snackbar = true
           this.snackbarType = 'success'
-          this.$router.push('/backend/qualifications/')
+          this.$router.push('/backend/blogPosts/')
         }).catch((e) => {
           if (e.response) {
             this.snackBarContent = e.response.data.message
@@ -54,13 +49,13 @@ export default {
           }
         })
     },
-    deleteQualification (formData) {
-      this.$axios.delete('/qualifications/' + formData._id)
+    deleteBlogPost (formData) {
+      this.$axios.delete('/blogPosts/' + formData._id)
         .then((res) => {
           this.snackbar = true
           this.snackBarContent = res.data.message
           this.snackbarType = 'success'
-          this.$router.push('/backend/qualifications/')
+          this.$router.push('/backend/blog/')
         }).catch((e) => {
           if (e.response) {
             this.snackBarContent = e.response.data.message

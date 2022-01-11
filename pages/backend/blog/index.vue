@@ -2,7 +2,7 @@
   <div>
     <h1>{{ title }}</h1>
 
-    <ProjectListing :posts="projectsList" admin-path="projects" />
+    <ProjectListing :posts="blogpostsList" admin-path="blog" />
   </div>
 </template>
 
@@ -12,12 +12,12 @@ export default {
   layout: 'backend',
   middleware: 'auth',
   async asyncData ({ $axios }) {
-    const res = await $axios({ url: '/projects/' })
-    return { projectsList: res.data }
+    const res = await $axios({ url: '/blogPosts/' })
+    return { blogpostsList: res.data }
   },
   data () {
     return {
-      projectsList: [],
+      blogpostsList: [],
       title: 'Projects'
     }
   },
@@ -28,17 +28,17 @@ export default {
   },
   methods: {
     editPost (id) {
-      this.$router.push(`/backend/projects/${id}`)
+      this.$router.push(`/backend/blog/${id}`)
     },
     deletePost (id) {
-      this.$axios.delete(`/projects/${id}`).then(() => {
+      this.$axios.delete(`/blogPosts/${id}`).then(() => {
         this.fetchPosts()
       })
     },
     fetchPosts () {
-      this.$axios.get('/projects/')
+      this.$axios.get('/blogPosts/')
         .then((res) => {
-          this.projectsList = res.data
+          this.blogpostsList = res.data
         })
     }
   }

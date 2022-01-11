@@ -16,12 +16,12 @@
           </svg>
         </div>
         <h2 class="text-gray-600 text-lg title-font font-medium">
-          {{ projectItem.name }}
+          {{ projectItem.title }}
         </h2>
       </div>
       <div class="flex-grow">
-        <p class="leading-relaxed text-base">
-          {{ projectItem.description }}
+        <p v-if="projectItem.content" class="leading-relaxed text-base">
+          {{ projectItem.content.substring(0, 100) }}
         </p>
         <a class="mt-3 text-indigo-400 inline-flex items-center">Learn More
           <svg
