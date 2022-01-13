@@ -28,7 +28,7 @@ export default {
   },
   data () {
     return {
-      snackBarContent: 'blog post updated successfully',
+      snackBarContent: 'Post updated successfully',
       snackbarType: 'success',
       snackbar: false
     }
@@ -37,10 +37,10 @@ export default {
     updateBlogPost (formData) {
       this.$axios.patch('/blogPosts/' + formData._id, formData)
         .then(() => {
-          this.snackBarContent = 'blogPost updated successfully'
+          this.snackBarContent = 'Post updated successfully'
           this.snackbar = true
           this.snackbarType = 'success'
-          this.$router.push('/backend/blogPosts/')
+          this.$router.push('/backend/blog/')
         }).catch((e) => {
           if (e.response) {
             this.snackBarContent = e.response.data.message

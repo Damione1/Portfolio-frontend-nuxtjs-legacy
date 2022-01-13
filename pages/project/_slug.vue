@@ -17,11 +17,11 @@
               </p>
             </div>
           </div>
-          <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-            <h1 class="text-gray-900 text-2xl title-font font-medium mb-3">
+          <div class="prose prose-sm sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+            <h1>
               {{ project.title }}
             </h1>
-            <p class="leading-relaxed mb-4 prose" v-html="$md.render(project.content || '')" />
+            <p class="leading-relaxed text-left mb-4" v-html="$md.render(project.content || '')" />
             <a v-if="project.url" class="text-indigo-500 inline-flex items-center">Learn More
               <svg
                 fill="none"

@@ -1,6 +1,6 @@
 <template>
   <div class="container max-w-screen-lg xl:max-w-screen-xl">
-    <div class="w-full bg-white p-12">
+    <div class="w-full bg-white p-2 sm:p-10">
       <div class="header flex items-end justify-between mb-12">
         <div class="title">
           <h1 class="text-4xl font-bold text-gray-800 mb-4">
@@ -12,10 +12,10 @@
         </div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
-        <div v-for="project in projects" :key="project._id" class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
+        <div v-for="project in projects" :key="project._id" class="overflow-hidden shadow-lg rounded-lg h-90 w-100 sm:w-80 md:w-100 cursor-pointer m-auto">
           <nuxt-link :to="`/project/${project.slug}`" class="w-full block h-full">
             <img alt="blog photo" :src="getPostThumbnail (project)" class="max-h-40 w-full object-cover">
-            <div class="bg-white dark:bg-gray-800 w-full p-4">
+            <div class="bg-white w-full p-4">
               <p class="text-indigo-500 text-md font-medium">
                 {{ project.title }}
               </p>
