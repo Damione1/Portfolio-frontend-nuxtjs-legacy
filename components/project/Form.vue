@@ -45,7 +45,7 @@
           sm="6"
         >
           <v-card>
-            <div class="" v-html="$md.render(project.content)" />
+            <div class="prose" v-html="$md.render(project.content)" />
           </v-card>
         </v-col>
         <v-col
