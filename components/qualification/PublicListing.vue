@@ -2,11 +2,11 @@
   <section class="text-gray-800 body-font my-40">
     <div class="py-24 flex flex-wrap">
       <div class="flex flex-col w-full mb-10">
-        <h2 v-if="mainTitle" class="text-xs tracking-widest font-medium title-font mb-1">
-          {{ subTitle }}
-        </h2>
-        <h3 v-if="subTitle" class="sm:text-3xl text-2xl font-medium title-font">
+        <h2 v-if="mainTitle" class="text-xs tracking-widest font-medium title-font mb-1 dark:text-gray-500">
           {{ mainTitle }}
+        </h2>
+        <h3 v-if="subTitle" class="sm:text-3xl text-2xl font-medium title-font dark:text-gray-300">
+          {{ subTitle }}
         </h3>
       </div>
       <div class="flex flex-wrap">

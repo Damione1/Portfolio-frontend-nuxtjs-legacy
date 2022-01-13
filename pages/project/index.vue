@@ -1,12 +1,12 @@
 <template>
-  <div class="container max-w-screen-lg xl:max-w-screen-xl">
-    <div class="w-full bg-white p-2 sm:p-10">
+  <div class="container max-w-screen-lg xl:max-w-screen-xl dark:text-gray-400color: #b5b5b5;">
+    <div class="w-full p-2 sm:p-10">
       <div class="header flex items-end justify-between mb-12">
         <div class="title">
-          <h1 class="text-4xl font-bold text-gray-800 mb-4">
+          <h1 class="text-4xl font-bold text-gray-800 dark:text-gray-400">
             My projects
           </h1>
-          <p class="text-2xl font-light text-gray-400">
+          <p class="text-2xl font-light text-gray-400 dark:text-gray-500">
             Here are some of my projects
           </p>
         </div>
@@ -15,7 +15,7 @@
         <div v-for="project in projects" :key="project._id" class="overflow-hidden shadow-lg rounded-lg h-90 w-100 sm:w-80 md:w-100 cursor-pointer m-auto">
           <nuxt-link :to="`/project/${project.slug}`" class="w-full block h-full">
             <img alt="blog photo" :src="getPostThumbnail (project)" class="max-h-40 w-full object-cover">
-            <div class="bg-white w-full p-4">
+            <div class="dark:bg-neutral-800 w-full p-4">
               <p class="text-indigo-500 text-md font-medium">
                 {{ project.title }}
               </p>
@@ -64,7 +64,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

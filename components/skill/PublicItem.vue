@@ -1,12 +1,12 @@
 <template>
-  <div class="flex flex-col items-center p-3 bg-gray-200 rounded">
+  <div class="flex flex-col items-center p-3 bg-gray-200 dark:bg-neutral-800 rounded">
     <img
       v-if="skillItem.icon"
       class="w-16 h-16"
       :src="skillItem.icon.url"
       :alt="skillItem.name"
     >
-    <p class="mt-2 text-lg font-semibold text-gray-600">
+    <p class="mt-2 text-lg font-semibold text-gray-600 dark:text-gray-200">
       {{ skillItem.name }}
     </p>
   </div>
