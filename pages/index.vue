@@ -8,7 +8,7 @@
 
     <QualificationPublicListing :user-id="userId" :main-title="qualification.mainTitle" :sub-title="qualification.subTitle" />
 
-    <!-- <ProjectPublicListing :user-id="userId" :main-title="project.mainTitle" :sub-title="project.subTitle" /> -->
+    <ProjectPublicListing :user-id="userId" :main-title="project.mainTitle" :sub-title="project.subTitle" />
   </div>
 </template>
 
