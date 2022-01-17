@@ -36,7 +36,7 @@
               </p>
             </div>
           </div>
-          <div class="prose dark:text-gray-400 prose-sm sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+          <div class="prose dark:prose-invert dark:prose-headings:text-gray-200 prose-sm sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
             <h1>
               {{ blogPost.title }}
             </h1>
@@ -75,12 +75,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.dark{
-  h1, h2, a{
-    color: #b5b5b5!important;
-  }
-
-}
-</style>

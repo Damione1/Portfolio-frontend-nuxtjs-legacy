@@ -54,7 +54,7 @@ export default {
     }
   },
   head () {
-    return { title: 'Projects | Damien Goehrig', meta: [{ hid: 'description', name: 'description', content: 'My latest blogPosts' }] }
+    return { title: 'Blog | Damien Goehrig', meta: [{ hid: 'description', name: 'description', content: 'My latest articles' }] }
   },
   methods: {
     getPostThumbnail (blogPost) {

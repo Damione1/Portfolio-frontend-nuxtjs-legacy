@@ -21,9 +21,10 @@
       </div>
       <div class="flex-grow">
         <p v-if="projectItem.content" class="leading-relaxed text-base">
-          {{ projectItem.content.substring(0, 100) }}
+          {{ projectItem.content.substring(0, 100) }}...
         </p>
-        <a class="mt-3 text-indigo-400 inline-flex items-center">Learn More
+        <nuxt-link :to="`/project/${projectItem.slug}`" class="mt-3 text-indigo-400 inline-flex items-center">
+          Learn More
           <svg
             fill="none"
             stroke="currentColor"
@@ -35,7 +36,8 @@
           >
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
-        </a>
+          </a>
+        </nuxt-link>
       </div>
     </div>
   </div>

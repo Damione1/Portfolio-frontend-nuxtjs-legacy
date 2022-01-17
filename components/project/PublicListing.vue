@@ -16,6 +16,22 @@
           :project-item="project"
         />
       </div>
+      <div class="text-right w-full mt-8">
+        <nuxt-link :to="`/project`" class="text-indigo-500 inline-flex items-center">
+          <span class="mr-3">View All Projects</span>
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="w-4 h-4 ml-3"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </nuxt-link>
+      </div>
     </div>
   </section>
 </template>
@@ -44,7 +60,8 @@ export default {
   },
   async fetch () {
     const res = await this.$axios.get(`/public/project/${this.userId}`)
-    this.projectsList = res.data
+    /* limit to the first 3 items */
+    this.projectsList = res.data.slice(0, 3)
   }
 }
 </script>
