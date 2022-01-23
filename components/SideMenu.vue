@@ -27,66 +27,20 @@
       nav
       dense
     >
-      <v-list-item link to="/backend" nuxt>
+      <v-list-item v-for="menuItem in menuItems" :key="menuItem.title" link :to="menuItem.route" nuxt>
+        <v-list-item-icon>
+          <v-icon>{{ menuItem.icon }}</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>
+          {{ menuItem.title }}
+        </v-list-item-title>
+      </v-list-item>
+      <v-list-item>
         <v-list-item-icon>
           <v-icon>mdi-home</v-icon>
         </v-list-item-icon>
-        <v-list-item-title>
-          Home
-        </v-list-item-title>
-      </v-list-item>
-
-      <v-list-item link to="/backend/work-experiences" nuxt>
-        <v-list-item-icon>
-          <v-icon>mdi-folder</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>
-          Work Experiences
-        </v-list-item-title>
-      </v-list-item>
-
-      <v-list-item link to="/backend/qualifications" nuxt>
-        <v-list-item-icon>
-          <v-icon>mdi-folder</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>
-          Qualifications
-        </v-list-item-title>
-      </v-list-item>
-
-      <v-list-item link to="/backend/skills" nuxt>
-        <v-list-item-icon>
-          <v-icon>mdi-folder</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>
-          Skills
-        </v-list-item-title>
-      </v-list-item>
-
-      <v-list-item link to="/backend/projects" nuxt>
-        <v-list-item-icon>
-          <v-icon>mdi-folder</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>
-          Projects
-        </v-list-item-title>
-      </v-list-item>
-
-      <v-list-item link to="/backend/blog" nuxt>
-        <v-list-item-icon>
-          <v-icon>mdi-folder</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>
-          Blog
-        </v-list-item-title>
-      </v-list-item>
-
-      <v-list-item link to="/backend/medias" nuxt>
-        <v-list-item-icon>
-          <v-icon>mdi-image</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>
-          Medias
+        <v-list-item-title @click="logout">
+          Logout
         </v-list-item-title>
       </v-list-item>
     </v-list>
@@ -96,10 +50,57 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+  data: () => ({
+    menuItems: {
+      home: {
+        title: 'Home',
+        icon: 'mdi-home',
+        route: '/backend'
+      },
+      workExperiences: {
+        title: 'Work Experiences',
+        icon: 'mdi-folder',
+        route: '/backend/work-experiences'
+      },
+      qualifications: {
+        title: 'Qualifications',
+        icon: 'mdi-folder',
+        route: '/backend/qualifications'
+      },
+      skills: {
+        title: 'Skills',
+        icon: 'mdi-folder',
+        route: '/backend/skills'
+      },
+      projects: {
+        title: 'Projects',
+        icon: 'mdi-folder',
+        route: '/backend/projects'
+      },
+      blog: {
+        title: 'Blog',
+        icon: 'mdi-folder',
+        route: '/backend/blog'
+      },
+      medias: {
+        title: 'Medias',
+        icon: 'mdi-image',
+        route: '/backend/medias'
+      },
+      account: {
+        title: 'My profile',
+        icon: 'mdi-account',
+        route: '/backend/account'
+      }
+    }
+  }),
   computed: {
     ...mapGetters(['loggedInUser'])
+  },
+  methods: {
+    async logout () {
+      await this.$auth.logout()
+    }
   }
-
-  //
 }
 </script>

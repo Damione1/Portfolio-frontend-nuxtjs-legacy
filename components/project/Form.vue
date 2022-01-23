@@ -64,11 +64,21 @@
           <v-combobox
             v-model="project.tags"
             :items="tags"
-            label="Combobox"
+            label="Tags"
             multiple
             outlined
             dense
           />
+        </v-col>
+        <v-col
+          cols="12"
+          sm="6"
+        >
+          <SkillSelector
+            :selected-skills="project.skills"
+            @submitSkill="updateSkills"
+          />
+          {{ project.skills }}
         </v-col>
         <v-col
           cols="12"
@@ -197,6 +207,9 @@ export default {
     },
     submitProject () {
       this.$emit('submitProject', this.project)
+    },
+    updateSkills (skills) {
+      this.project.skills = skills
     }
   }
 }
