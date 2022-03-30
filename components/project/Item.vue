@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>{{ projectItem.title }}</h2>
-    <p v-if="projectItem.content">
+    <p v-if="projectItem.excerpt">
       {{ projectItem.excerpt.substring(0, 100) }}
     </p>
     <v-btn icon :to="`/backend/${adminPath}/${projectItem._id}`" nuxt>

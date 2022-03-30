@@ -2,7 +2,7 @@
   <section class="text-gray-800 dark:text-gray-400 body-font">
     <div class="container px-5 py-24 mx-auto flex flex-col">
       <div class="lg:w-4/6 mx-auto">
-        <div class="rounded-lg h-64 overflow-hidden">
+        <div class="rounded-lg h-128 overflow-hidden">
           <img alt="content" class="object-cover object-center h-full w-full" :src="getThumbnail()">
         </div>
         <div class="flex flex-col sm:flex-row mt-10">

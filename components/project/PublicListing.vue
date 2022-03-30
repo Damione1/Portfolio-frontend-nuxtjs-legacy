@@ -9,7 +9,7 @@
           {{ subTitle }}
         </h3>
       </div>
-      <div class="flex flex-wrap -m-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
         <ProjectPublicItem
           v-for="project in projectsList"
           :key="project.id"
@@ -60,7 +60,7 @@ export default {
   async fetch () {
     const res = await this.$axios.get(`/public/project/${this.userId}`)
     /* limit to the first 3 items */
-    this.projectsList = res.data.slice(0, 3)
+    this.projectsList = res.data.reverse().slice(0, 3)
   }
 }
 </script>

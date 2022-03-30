@@ -14,7 +14,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
         <div v-for="blogPost in blogPosts" :key="blogPost._id" class="overflow-hidden shadow-lg rounded-lg h-90 w-100 sm:w-80 md:w-100 cursor-pointer m-auto">
           <nuxt-link :to="`/blog/${blogPost.slug}`" class="w-full block h-full">
-            <img alt="blog photo" :src="getPostThumbnail(blogPost)" class="max-h-40 w-full object-cover">
+            <img alt="blog photo" :src="getPostThumbnail(blogPost)" class="max-h-60 w-full object-cover">
             <div class="dark:bg-neutral-800 w-full p-4">
               <p class="text-indigo-500 text-md font-medium">
                 {{ blogPost.title }}

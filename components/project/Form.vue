@@ -176,7 +176,9 @@ export default {
         'Google Cloud Platform',
         'Google Cloud Firebase',
         'Google Cloud Storage',
-        'JWT Authentication'
+        'JWT Authentication',
+        'APIs',
+        'Handlebars.js'
       ],
       terms: false,
       modal: false,
