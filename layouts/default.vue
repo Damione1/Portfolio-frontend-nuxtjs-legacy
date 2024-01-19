@@ -12,6 +12,12 @@
           <nuxt-link to="/blog" class="border-0 py-1 px-3 mr-5 hover:text-gray-100 dark:target:text-gray-100">
             Blog
           </nuxt-link>
+          <a href="https://github.com/Damione1" class="border-0 py-1 px-3 mr-5 hover:text-gray-100 dark:target:text-gray-100" target="_blank">
+            🔗Github
+          </a>
+          <a href="https://www.linkedin.com/in/damiengoehrig/" class="border-0 py-1 px-3 mr-5 hover:text-gray-100 dark:target:text-gray-100" target="_blank">
+            🔗Linkedin
+          </a>
         </nav>
       </div>
     </header>

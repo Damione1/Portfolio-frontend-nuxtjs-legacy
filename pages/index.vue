@@ -35,8 +35,8 @@ export default {
         subTitle: 'My qualifications'
       },
       header: {
-        mainTitle: 'Hi, I\'m Damien,\n a backend web developer',
-        subTitle: "I'm a senior backend web developer, with a passion for modern web technologies and a love for learning new things."
+        mainTitle: 'Hi, I\'m Damien,\na software developer.',
+        subTitle: "I'm an intermediate software developer with a passion for modern web technologies and a love for learning new things"
       }
 
     }
@@ -49,7 +49,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Portfolio of Damien Goehrig, a senior backend web developer, with a passion for modern web technologies and a love for learning new things.'
+        content: 'Portfolio of Damien Goehrig, an intermediate software developer, with a passion for modern web technologies and a love for learning new things.'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]

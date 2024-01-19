@@ -20,7 +20,7 @@
         </h2>
       </div>
       <div class="flex-grow">
-        <p v-if="projectItem.content" class="leading-relaxed text-base">
+        <p v-if="projectItem.content" class="leading-relaxed text-base" style="white-space: pre-line">
           {{ projectItem.content.substring(0, 100) }}...
         </p>
         <nuxt-link :to="`/project/${projectItem.slug}`" class="mt-3 text-indigo-400 inline-flex items-center">
@@ -36,7 +36,6 @@
           >
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
-          </a>
         </nuxt-link>
       </div>
     </div>

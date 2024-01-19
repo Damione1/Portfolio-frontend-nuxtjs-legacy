@@ -13,7 +13,7 @@
         <p class="leading-relaxed text-base">
           {{ $dateFns.format(qualificationItem.startDate, 'MMM yyyy' ) }} - {{ qualificationItem.current ? 'Present' : $dateFns.format(qualificationItem.endDate, 'MMM yyyy' ) }}
         </p>
-        <p class="leading-relaxed text-base">
+        <p class="leading-relaxed text-base" style="white-space: pre-line">
           {{ qualificationItem.description }}
         </p>
       </div>

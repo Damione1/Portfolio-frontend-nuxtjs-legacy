@@ -13,7 +13,7 @@
         <p class="leading-relaxed text-base">
           {{ $dateFns.format(post.startDate, 'MMM yyyy' ) }} - {{ post.current ? 'Present' : $dateFns.format(post.endDate, 'MMM yyyy' ) }}
         </p>
-        <p class="leading-relaxed text-base">
+        <p class="leading-relaxed text-base" style="white-space: pre-line">
           {{ post.description }}
         </p>
       </div>
